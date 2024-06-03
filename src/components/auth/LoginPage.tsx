@@ -1,9 +1,7 @@
-import { useId } from "react";
 import useAuth from "./useAuth";
+import { InputGroup } from "../_ui-elements";
 
 const LoginPage = () => {
-  const emailId = useId();
-  const passwordId = useId();
   const { authenticate } = useAuth("login");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,14 +15,8 @@ const LoginPage = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor={emailId}>Email</label>
-          <input name="email" id={emailId} type="text" />
-        </div>
-        <div>
-          <label htmlFor={passwordId}>Password</label>
-          <input name="password" id={passwordId} type="password" />
-        </div>
+        <InputGroup name="name" type="text">Name</InputGroup>
+        <InputGroup name="password" type="password">Password</InputGroup>
         <button type="submit">Login</button>
       </form>
     </>
