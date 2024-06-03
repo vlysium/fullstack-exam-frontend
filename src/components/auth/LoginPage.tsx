@@ -15,7 +15,7 @@ const LoginPage = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <InputGroup name="name" type="text">Name</InputGroup>
+        <InputGroup name="email" type="email">Email</InputGroup>
         <InputGroup name="password" type="password">Password</InputGroup>
         <button type="submit">Login</button>
       </form>

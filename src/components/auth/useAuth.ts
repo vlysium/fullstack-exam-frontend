@@ -2,13 +2,16 @@ import { useState } from "react";
 import useAuthStore from "./store";
 import ApiClient from "../../services/apiClient";
 
-const useAuth = (endpoint: "signup" | "login") => {
+const useAuth = (endpoint?: "signup" | "login") => {
   const { setToken, removeToken, setUser, removeUser } = useAuthStore();
   const [error, setError] = useState(null);
-
-  const apiClient = new ApiClient(endpoint);
-
+  
   const authenticate = async (data: string) => {
+    if (!endpoint) {
+      throw new Error("You must provide an endpoint to useAuth");
+    }
+    const apiClient = new ApiClient(endpoint);
+
     try {
       const response = await apiClient[endpoint](data);
       setToken(response.token);
