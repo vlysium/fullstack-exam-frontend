@@ -19,7 +19,7 @@ const useAuth = (endpoint?: "signup" | "login") => {
       onSuccess: (response) => {
         setToken(response.token);
         setUser(response.user);
-        toast.success("You have successfully logged in!");
+        toast.success(`Welcome back, ${response.user.name}`);
       },
       onError: (error: any) => {
         // console.error(error.response.data.message);
@@ -36,6 +36,7 @@ const useAuth = (endpoint?: "signup" | "login") => {
     removeToken();
     removeUser();
     useAuthStore.persist.clearStorage();
+    toast.info("You have logged out");
   }
 
   return { authenticate, logout };
