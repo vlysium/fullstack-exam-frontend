@@ -1,4 +1,5 @@
-import { HTMLInputTypeAttribute, useId } from "react";
+import { HTMLInputTypeAttribute } from "react";
+import styles from "./input-group.module.scss";
 
 interface Props {
   children: string
@@ -9,12 +10,11 @@ interface Props {
 }
 
 const InputGroup = ({ children, name, type, handleInput, value }: Props) => {
-  const identifier = useId();
 
   return (
-    <div>
-      <label htmlFor={identifier}>{children}</label>
-      <input name={name} id={identifier} type={type} onChange={(event) => handleInput(event)} value={value}/>
+    <div className={styles.inputGroup}>
+      <input className={styles.input} name={name} type={type} onChange={(event) => handleInput(event)} value={value} placeholder=" "/>
+      <label className={styles.label}>{children}</label>
     </div>
   )
 }

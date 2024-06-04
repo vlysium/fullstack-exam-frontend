@@ -1,0 +1,49 @@
+/* #region colors */
+$color-gray-50: #fafafa;
+$color-gray-100: #f4f4f5;
+$color-gray-200: #e4e4e7;
+$color-gray-300: #d4d4d8;
+$color-gray-400: #a1a1aa;
+$color-gray-500: #71717a;
+$color-gray-600: #52525b;
+$color-gray-700: #3f3f46;
+$color-gray-800: #27272a;
+$color-gray-900: #18181b;
+$color-gray-950: #09090b;
+
+$color-primary-50: #fff7ed;
+$color-primary-100: #ffedd5;
+$color-primary-200: #fed7aa;
+$color-primary-300: #fdba74;
+$color-primary-400: #fb923c;
+$color-primary-500: #f97316;
+$color-primary-600: #ea580c;
+$color-primary-700: #c2410c;
+$color-primary-800: #9a3412;
+$color-primary-900: #7c2d12;
+$color-primary-950: #431407;
+/* #endregion colors */
+
+/* #region gradients */
+$gradient-primary: linear-gradient(90deg, $color-primary-300, $color-primary-500);
+/* #endregion gradients */
+
+/* #region font sizes */
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
+$text-md: 1rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+$text-3xl: 1.875rem;
+$text-4xl: 2.25rem;
+/* #endregion font sizes */
+
+/* #region breakpoints */
+$screen-xs: 480px;
+$screen-sm: 640px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+$screen-2xl: 1536px;
+/* #endregion breakpoints */
