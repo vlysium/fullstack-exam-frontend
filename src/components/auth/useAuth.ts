@@ -6,14 +6,15 @@ const useAuth = (endpoint?: "signup" | "login") => {
   const { setToken, removeToken, setUser, removeUser } = useAuthStore();
   const [error, setError] = useState(null);
   
-  const authenticate = async (data: string) => {
+  const authenticate = async (data: object) => {
     if (!endpoint) {
       throw new Error("You must provide an endpoint to useAuth");
     }
     const apiClient = new ApiClient(endpoint);
 
     try {
-      const response = await apiClient[endpoint](data);
+      const dataJSON = JSON.stringify(data);
+      const response = await apiClient[endpoint](dataJSON);
       setToken(response.token);
       setUser(response.user);
     } catch (error) {
