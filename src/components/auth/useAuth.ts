@@ -1,26 +1,35 @@
-import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 import useAuthStore from "./store";
 import ApiClient from "../../services/apiClient";
 
 const useAuth = (endpoint?: "signup" | "login") => {
   const { setToken, removeToken, setUser, removeUser } = useAuthStore();
-  const [error, setError] = useState(null);
-  
-  const authenticate = async (data: object) => {
-    if (!endpoint) {
-      throw new Error("You must provide an endpoint to useAuth");
-    }
-    const apiClient = new ApiClient(endpoint);
 
-    try {
+  const authenticateMutation = useMutation(
+    async (data: object) => {
+      if (!endpoint) {
+        throw new Error("You must provide an endpoint to useAuth");
+      }
+      const apiClient = new ApiClient(endpoint);
       const dataJSON = JSON.stringify(data);
-      const response = await apiClient[endpoint](dataJSON);
-      setToken(response.token);
-      setUser(response.user);
-    } catch (error) {
-      setError(error.response.data.message);
-      console.error(error.response.data.message);
+      return apiClient[endpoint](dataJSON);
+    },
+    {
+      onSuccess: (response) => {
+        setToken(response.token);
+        setUser(response.user);
+        toast.success("You have successfully logged in!");
+      },
+      onError: (error: any) => {
+        // console.error(error.response.data.message);
+        toast.error(error.response.data.message);
+      }
     }
+  );
+
+  const authenticate = (data: object) => {
+    authenticateMutation.mutate(data);
   };
 
   const logout = () => {
@@ -29,7 +38,7 @@ const useAuth = (endpoint?: "signup" | "login") => {
     useAuthStore.persist.clearStorage();
   }
 
-  return { authenticate, logout, error };
+  return { authenticate, logout };
 };
 
 export default useAuth;

@@ -16,7 +16,6 @@
   }
 }
 
-
 .form-heading {
   font-size: $text-2xl;
   font-weight: 600;
@@ -30,7 +29,7 @@
   font-weight: 400;
   color: $color-gray-600;
 
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .form {
@@ -43,6 +42,7 @@
   padding: 0.875rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid transparent;
+  margin-top: 1rem;
 
   background-color: $color-primary-400;
 
