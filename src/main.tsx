@@ -11,14 +11,12 @@ import router from "./router.tsx";
 const queryClient = new QueryClient();
 
 const toastOptions: ToastContainerProps = {
-  position: "bottom-right",
+  position: "top-center",
   autoClose: 5000,
   hideProgressBar: false,
   closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  limit: 5,
-  newestOnTop: true,
+  pauseOnHover: false,
+  limit: 3,
   pauseOnFocusLoss: false,
 };
 
@@ -26,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-      <ToastContainer {...toastOptions}/>
+      <ToastContainer {...toastOptions} />
       <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>

@@ -22,8 +22,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <section>
-        <div></div>
+      <section className={styles.section}>
         <div className={styles.formWrapper}>
           <h1 className={styles.formHeading}>Login to your account</h1>
           <p className={styles.formSubheading}>Are you a new user? <Link to="/signup" className="link">Create your account!</Link></p>
@@ -33,6 +32,7 @@ const LoginPage = () => {
             <input className={styles.submitButton} type="submit" value="Login" disabled={!isFormEmpty} />
           </form>
         </div>
+        <div className={styles.backgroundImage} />
       </section>
     </>
   );
