@@ -21,6 +21,11 @@ body {
   min-height: 100vh;
 }
 
+main.main-app {
+  max-width: $screen-xl;
+  margin-inline: auto;
+}
+
 input {
   appearance: none;
   outline: none;

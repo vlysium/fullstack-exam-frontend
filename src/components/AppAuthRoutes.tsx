@@ -9,7 +9,9 @@ const AppAuthRoutes = () => {
   }
 
   return (
-    <Outlet />
+    <main>
+      <Outlet />
+    </main>
   )
 }
 
