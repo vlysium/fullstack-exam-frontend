@@ -34,7 +34,7 @@ input {
 a {
   text-decoration: none;
   
-  .link {
+  &.link {
     color: $color-primary-400;
     text-underline-offset: 0.125rem;
     font-weight: 500;
