@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import Navigation from "./_ui-elements/Navigation";
+import { Navigation } from "./_ui-elements";
 import { useAuthStore } from "./auth"
 
 const App = () => {

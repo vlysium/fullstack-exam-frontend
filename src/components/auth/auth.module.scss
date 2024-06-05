@@ -75,7 +75,6 @@
 
   transition-property: background-color, color;
   transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
 
   &:hover {
     background-color: $color-primary-500;

@@ -11,8 +11,16 @@
   font-variation-settings: "slnt" 0;
 }
 
+#root {
+  display: contents;
+}
+
 body {
+  position: relative;
   background-color: $color-gray-50;
+  min-height: 100vh;
+  max-width: $screen-xl;
+  margin-inline: auto;
 }
 
 input {
@@ -25,14 +33,42 @@ input {
   }
 }
 
-a.link {
-  color: $color-primary-400;
+a {
   text-decoration: none;
-  text-underline-offset: 0.125rem;
-  font-weight: 500;
+  
+  .link {
+    color: $color-primary-400;
+    text-underline-offset: 0.125rem;
+    font-weight: 500;
 
-  &:hover {
-    color: $color-primary-500;
-    text-decoration: underline;
+    &:hover {
+      color: $color-primary-500;
+      text-decoration: underline;
+    }
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+i[data-icon] {
+  display: contents;
+
+  &::before {
+    content: attr(data-icon);
+    font-family: "Material Symbols Rounded";
+    font-style: normal;
+    text-transform: none;
+    display: inline-block;
+    width: calc(8px + 1em);
+    text-align: center;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
   }
 }

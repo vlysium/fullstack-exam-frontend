@@ -23,7 +23,6 @@
 
   transition-property: border;
   transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
 
   &:focus {
     outline: none;
@@ -51,7 +50,6 @@
 
   transition-property: color, transform, inset;
   transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
 }
 
 .input:placeholder-shown + .label {
