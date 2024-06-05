@@ -30,7 +30,7 @@ const SignupPage = () => {
             <InputGroup name="name" type="text" handleInput={handleInput} value={formData.name}>Name</InputGroup>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>
-            <input className={styles.submitButton} type="submit" value="Login" disabled={!isFormEmpty} />
+            <input className={styles.submitButton} type="submit" value="Create account" disabled={!isFormEmpty} />
           </form>
         </div>
         <div className={styles.backgroundImage}/>
