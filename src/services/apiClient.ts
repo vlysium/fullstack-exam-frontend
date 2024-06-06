@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { User } from "../entities/User";
 
 interface AuthResponse {
@@ -6,8 +6,21 @@ interface AuthResponse {
   user: User;
 }
 
+interface FetchResponse<T> {
+  count: number;
+  items: T[];
+  previous?: Pagination;
+  next?: Pagination;
+  page: number;
+}
+
+interface Pagination {
+  page: number;
+  limit: number;
+}
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.BACKEND_URL || "http://localhost:3000/api",
+  baseURL: import.meta.env.VITE_BACKEND_URL + "/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -29,6 +42,13 @@ class ApiClient<T> {
 
   login = async (data: T) => {
     const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+    return response.data;
+  }
+
+  // products endpoints
+
+  getAll = async (config?: AxiosRequestConfig) => {
+    const response = await axiosInstance.get<FetchResponse<T>>(`${this.endpoint}`, config);
     return response.data;
   }
   

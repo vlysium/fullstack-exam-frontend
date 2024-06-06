@@ -1,0 +1,96 @@
+@use "../../variables" as *;
+
+.page {
+  
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+
+  li {
+    display: contents;
+  }
+}
+
+.product-item {
+  overflow: hidden;
+  border-radius: 0.5rem 2rem;
+  background-color: $color-gray-50;
+  border: 1px solid $color-gray-200;
+  box-shadow: 0 4px 6px -1px rgba($color-gray-950, 0.1), 0 2px 4px -2px rgba($color-gray-950, 0.1);
+
+  transition-property: background-color, border, box-shadow;
+  transition-duration: 0.2s;
+
+  &:is(:hover, :focus-visible) {
+    background-color: $color-gray-100;
+    border: 1px solid $color-gray-400;
+    box-shadow: 0 10px 15px -3px rgba($color-gray-950, 0.1), 0 4px 6px -4px rgba($color-gray-950, 0.1);
+  }
+}
+
+.product-card {
+  position: relative;
+
+  flex: 1;
+  padding: 0.25rem;
+}
+
+.product-card-image-wrapper {
+  overflow: hidden;
+  border-radius: 0.25rem 1.75rem;
+}
+
+.product-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  filter: brightness(0.8);
+
+  transition-property: transform, filter;
+  transition-duration: 0.3s;
+}
+
+.product-item:is(:hover, :focus) .product-card-image {
+  filter: brightness(1);
+  transform: scale(1.05) rotate(1.8deg);
+}
+
+.product-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-price {
+  color: $color-primary-500;
+  font-weight: 700;
+  font-size: $text-xl;
+}
+
+.product-name {
+  font-size: $text-lg;
+  font-weight: 700;
+  color: $color-gray-900;
+}
+
+.product-rating-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  background-color: $color-primary-100;
+  border-radius: 2rem;
+  border: 1px solid $color-primary-300;
+}
+
+.product-rating-number {
+  font-size: $text-sm;
+  color: $color-gray-700;
+  font-weight: 500;
+}

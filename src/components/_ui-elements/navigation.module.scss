@@ -7,7 +7,7 @@
 
   width: 100%;
   max-width: $screen-xl;
-  margin-inline: auto;
+  margin-left: -0.625rem;
 }
 
 .navigation-menu {
@@ -36,7 +36,7 @@
   transition-property: background-color, color;
   transition-duration: 0.2s;
 
-  &.active, &:hover {
+  &.active, &:hover, &:focus-visible {
     background-color: $color-gray-200;
     color: $color-gray-800;
   }

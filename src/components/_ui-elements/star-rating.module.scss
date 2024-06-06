@@ -1,0 +1,42 @@
+@use "../../variables" as *;
+
+.rating {
+  display: flex;
+  align-items: center;
+  aspect-ratio: 5 / 1;
+  width: auto;
+  min-height: 1rem;
+}
+
+.star {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+
+  background: $color-primary-200;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.star-full {
+  &::after {
+    width: 100%;
+    background: $color-primary-400;
+  }
+}
+
+@for $i from 1 through 9 {
+  .star-#{$i * 10} {
+    &::after {
+      width: calc(10% * #{$i});
+      background: $color-primary-400;
+    }
+  }
+}

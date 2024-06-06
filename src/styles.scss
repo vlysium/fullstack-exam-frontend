@@ -24,6 +24,7 @@ body {
 main.main-app {
   max-width: $screen-xl;
   margin-inline: auto;
+  padding: 0.625rem;
 }
 
 input {
@@ -44,15 +45,35 @@ a {
     text-underline-offset: 0.125rem;
     font-weight: 500;
 
-    &:hover {
+    &:hover, &:focus-visible {
       color: $color-primary-500;
       text-decoration: underline;
+    }
+  }
+  
+  &:focus-visible {
+    position: relative;
+    outline: none;  
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      outline: 2px solid $color-primary-400;
+      outline-offset: 0.125rem;
     }
   }
 }
 
 li {
   list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 i[data-icon] {
