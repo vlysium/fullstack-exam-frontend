@@ -2,11 +2,11 @@ import { HTMLInputTypeAttribute } from "react";
 import styles from "./input-group.module.scss";
 
 interface Props {
-  children: string
-  name: string
-  type: HTMLInputTypeAttribute
-  handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value: string
+  children: string;
+  name: string;
+  type: HTMLInputTypeAttribute;
+  handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
 const InputGroup = ({ children, name, type, handleInput, value }: Props) => {

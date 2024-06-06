@@ -9,7 +9,7 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
 
-  console.log(product)
+  // console.log(product)
 
   return (
     <li>

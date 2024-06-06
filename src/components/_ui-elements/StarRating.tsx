@@ -8,8 +8,6 @@ const StarRating = ({ rating }: Props) => {
   const fullStars = Math.floor(rating);
   const halfStarPercentage = Math.round((rating - fullStars) * 100); // remaining percentage
 
-  console.log(`star-${halfStarPercentage}`)
-
   return (
     <div className={styles.rating}>
       {[...Array(5)].map((_, index) => (

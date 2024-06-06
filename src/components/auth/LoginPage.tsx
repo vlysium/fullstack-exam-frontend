@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={styles.page}>
         <div className={styles.formWrapper}>
           <h1 className={styles.formHeading}>Login to your account</h1>
           <p className={styles.formSubheading}>Are you a new user? <Link to="/signup" className="link">Create your account!</Link></p>
