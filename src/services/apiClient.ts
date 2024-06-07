@@ -9,10 +9,12 @@ interface AuthResponse {
 
 interface FetchResponse<T> {
   count: number;
+  totalCount: number;
   items: T[];
   previous?: Pagination;
   next?: Pagination;
   page: number;
+  totalPages: number;
 }
 
 interface Pagination {
