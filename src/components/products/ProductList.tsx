@@ -5,7 +5,6 @@ import styles from "./products.module.scss";
 const ProductList = () => {
 
   const { data } = useProducts();
-  console.log(data);
 
   return (
     <ul className={styles.productList}>
