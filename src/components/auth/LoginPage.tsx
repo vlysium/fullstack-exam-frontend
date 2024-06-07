@@ -25,7 +25,7 @@ const LoginPage = () => {
       <section className={styles.page}>
         <div className={styles.formWrapper}>
           <h1 className={styles.formHeading}>Login to your account</h1>
-          <p className={styles.formSubheading}>Are you a new user? <Link to="/signup" className="link">Create your account!</Link></p>
+          <p className={styles.formSubheading}>New to the app? <Link to="/signup" className="link">Join today!</Link></p>
           <form className={styles.form} onSubmit={handleSubmit}>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>

@@ -19,7 +19,8 @@ const useAuth = (endpoint?: "signup" | "login") => {
       onSuccess: (response) => {
         setToken(response.token);
         setUser(response.user);
-        toast.success(`Welcome back, ${response.user.name}`);
+        if (endpoint === "signup") toast.success(`Account created successfully! Welcome ${response.user.name}!`);
+        if (endpoint === "login") toast.success(`Welcome back, ${response.user.name}`);
       },
       onError: (error: any) => {
         // console.error(error.response.data.message);

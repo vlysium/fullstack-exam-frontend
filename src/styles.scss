@@ -19,12 +19,13 @@ body {
   position: relative;
   background-color: $color-gray-50;
   min-height: 100vh;
-}
-
-main.main-app {
-  max-width: $screen-xl;
-  margin-inline: auto;
-  padding: 0.625rem;
+  }
+  
+  main.main-app {
+    max-width: $screen-xl;
+    margin-inline: auto;
+    margin-bottom: 5rem;
+    padding: 0.625rem;
 }
 
 input {

@@ -25,7 +25,7 @@ const SignupPage = () => {
       <section className={styles.page}>
         <div className={styles.formWrapper}>
           <h1 className={styles.formHeading}>Welcome to Food Delivery</h1>
-          <p className={styles.formSubheading}>Create your account or <Link to="/login" className="link">login here</Link></p>
+          <p className={styles.formSubheading}>Create your account or <Link to="/login" className="link">login here!</Link></p>
           <form className={styles.form} onSubmit={handleSubmit}>
             <InputGroup name="name" type="text" handleInput={handleInput} value={formData.name}>Name</InputGroup>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
