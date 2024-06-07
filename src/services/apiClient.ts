@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { User } from "../entities/User";
+import { toast } from "react-toastify";
 
 interface AuthResponse {
   token: string;
@@ -36,13 +37,29 @@ class ApiClient<T> {
   // auth endpoints
 
   signup = async (data: T) => {
-    const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
-    return response.data;
+    try {
+      const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      if (error.code == "ERR_NETWORK") {
+        toast.error("Network error, please try again later");
+      }
+      throw error;
+    }
   }
 
   login = async (data: T) => {
-    const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
-    return response.data;
+    try {
+      const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      if (error.code == "ERR_NETWORK") {
+        toast.error("Network error, please try again later");
+      }
+      throw error;
+    }
   }
 
   // products endpoints
