@@ -4,10 +4,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
 
+html {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-variation-settings: "slnt" 0;
+
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -31,6 +35,8 @@ input {
   appearance: none;
   outline: none;
   border: none;
+
+  font-family: inherit;
 
   &[type="submit"]:not([disabled]) {
     cursor: pointer;
@@ -69,6 +75,8 @@ button {
   appearance: none;
   outline: none;
   border: none;
+
+  font-family: inherit;
   
   &:not([disabled]) {
     cursor: pointer;
