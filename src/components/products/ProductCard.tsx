@@ -16,7 +16,7 @@ const ProductCard = ({ product }: Props) => {
       <Link className={styles.productItem} to={product.slug}>
         <article className={styles.productCard}>
           <div className={styles.productCardImageWrapper}>
-            <img className={styles.productCardImage} src={import.meta.env.VITE_BACKEND_URL + product.image.src} alt={product.image.alt} />
+            <img className={styles.productCardImage} src={import.meta.env.VITE_BACKEND_URL + product.image.src} alt={product.image.alt} loading="lazy"/>
           </div>
           <div className={styles.productCardContent}>
             <p className={styles.productPrice}>DKK {product.price},-</p>

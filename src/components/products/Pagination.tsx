@@ -2,11 +2,17 @@ import styles from "./pagination.module.scss";
 import useProducts from "./useProducts";
 import useProductQueryStore from "./store";
 import { Icon } from "../_ui-elements";
+import { useLayoutEffect } from "react";
 
 const Pagination = () => {
   const { data } = useProducts();
 
   const { productQuery, setPage } = useProductQueryStore();
+
+  // smooth scroll to the top of the page when the page changes
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [productQuery.page]);
 
   const handlePaginate = (action: "NEXT_PAGE" | "PREVIOUS_PAGE" | "TO_PAGE", page?: number) => {
     window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top of page
