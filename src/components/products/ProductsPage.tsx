@@ -6,7 +6,6 @@ const ProductsPage = () => {
   return (
     <section className={styles.page}>
       <h2>ProductsPage</h2>
-      <Pagination />
       <ProductList />
       <Pagination />
     </section>
