@@ -11,12 +11,10 @@ const Pagination = () => {
 
   // smooth scroll to the top of the page when the page changes
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [productQuery.page]);
+    window.scrollTo({ top: 0 });
+  }, [data]);
 
   const handlePaginate = (action: "NEXT_PAGE" | "PREVIOUS_PAGE" | "TO_PAGE", page?: number) => {
-    window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top of page
-
     switch (action) {
       case "NEXT_PAGE":
         setPage(productQuery.page + 1);

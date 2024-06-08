@@ -18,6 +18,7 @@ const useProducts = () => {
       },
     }),
     staleTime: ms("6h"),
+    keepPreviousData: true, // keep previous data in view while fetching new data
   })
 }
 
