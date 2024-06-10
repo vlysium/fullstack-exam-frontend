@@ -32,6 +32,10 @@
 }
 
 .pagination-button {
+  display: flex;
+  justify-content: center;
+  line-height: $text-md;
+
   background-color: transparent;
   border: 1px solid transparent;
 

@@ -1,7 +1,7 @@
 @use "../../variables" as *;
 
 .page {
-  
+  min-height: 100vh;
 }
 
 .product-list {
@@ -109,8 +109,8 @@
 
 .product-rating-number {
   font-size: $text-sm;
-  color: $color-gray-700;
-  font-weight: 500;
+  color: $color-primary-400;
+  font-weight: 700;
 }
 
 .product-card-content-skeleton {

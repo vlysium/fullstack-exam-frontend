@@ -5,7 +5,7 @@ import styles from "./products.module.scss";
 const ProductsPage = () => {
   return (
     <section className={styles.page}>
-      <h2>ProductsPage</h2>
+      <h1>ProductsPage</h1>
       <ProductList />
       <Pagination />
     </section>

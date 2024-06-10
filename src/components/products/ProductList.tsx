@@ -5,7 +5,7 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 
 const ProductList = () => {
 
-  const { data, isLoading } = useProducts();
+  const { data: products, isLoading } = useProducts();
 
   const skeletons = Array.from({ length: 12 })
 
@@ -23,7 +23,7 @@ const ProductList = () => {
 
   return (
     <ul className={styles.productList}>
-      {data?.items.map(
+      {products?.items.map(
         (product) => (
           <ProductCard key={product._id} product={product} />
         )

@@ -15,7 +15,7 @@ const Navigation = () => {
   const location = useLocation()
 
   const navigationItems: NavigationItem[] = [
-    { label: "Home", href: "/", icon: "home" },
+    { label: "Home", href: "/home", icon: "home" },
     { label: "Menu", href: "/products", icon: "restaurant" },
     { label: "Basket", href: "/basket", icon: "shopping_bag" },
     { label: "Profile", href: "/profile", icon: "person" },
@@ -27,7 +27,7 @@ const Navigation = () => {
         {navigationItems.map(
           (item) => (
             <li key={item.label} className={styles.navigationLi}>
-              <Link to={item.href} className={`${styles.navigationItem} ${location.pathname == item.href && styles.active}`}>
+              <Link to={item.href} className={`${styles.navigationItem} ${location.pathname.includes(item.href) && styles.active}`}>
                 <Icon name={item.icon} className={styles.icon}/>
                 <span className={styles.navigationItemLabel}>{item.label}</span>
               </Link>

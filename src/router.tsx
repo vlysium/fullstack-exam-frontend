@@ -1,8 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import { SignupPage, LoginPage } from "./components/auth";
 import AppAuthRoutes from "./components/AppAuthRoutes";
-import { ProductsPage } from "./components/products";
+import { ProductSlugPage, ProductsPage } from "./components/products";
 
 
 const router = createBrowserRouter([
@@ -10,8 +10,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { 
+      { // redirect "/" to "/home"
         path: "/",
+        element: <Navigate to="/home" />
+      },
+      { 
+        path: "/home",
         element: <div>Home</div>
       },
       { 
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/products/:slug",
-        element: <div>Product</div>
+        element: <ProductSlugPage />
       },
       {
         path: "/basket",

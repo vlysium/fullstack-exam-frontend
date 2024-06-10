@@ -70,6 +70,11 @@ class ApiClient<T> {
     const response = await axiosInstance.get<FetchResponse<T>>(`${this.endpoint}`, config);
     return response.data;
   }
+
+  getOne = async (slug: string) => {
+    const response = await axiosInstance.get<T>(`${this.endpoint}/${slug}`);
+    return response.data;
+  }
   
 }
 
