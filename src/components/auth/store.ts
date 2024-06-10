@@ -16,21 +16,21 @@ interface AuthState {
 // storage with encryption to protect against editing the token and user
 const encryptedStorage: StateStorage = {
   getItem: (name) => {
-    const encryptedData = sessionStorage.getItem(name);
+    const encryptedData = localStorage.getItem(name);
     if (!encryptedData) return null;
     try {
       return decryptData(encryptedData);
     } catch (error) {
-      console.error("Error decrypting data from sessionStorage", error);
+      console.error("Error decrypting data from localStorage", error);
       return null;
     }
   },
   setItem: (name, value) => {
     const encryptedData = encryptData(value);
-    sessionStorage.setItem(name, encryptedData);
+    localStorage.setItem(name, encryptedData);
   },
   removeItem: (name) => {
-    sessionStorage.removeItem(name);
+    localStorage.removeItem(name);
   }
 };
 
