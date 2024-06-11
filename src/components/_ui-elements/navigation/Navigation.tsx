@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../auth";
+import { useAuth } from "../../auth";
 import styles from "./navigation.module.scss";
-import Icon from "./Icon";
+import Icon from "./../icon/Icon";
 
 export interface NavigationItem {
   label: string;
