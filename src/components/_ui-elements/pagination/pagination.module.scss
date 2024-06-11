@@ -1,9 +1,9 @@
-@use "../../variables" as *;
+@use "../../../variables" as *;
 
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin-block: 1rem;
+  margin-block: 2rem;
 }
 
 .pagination-list {

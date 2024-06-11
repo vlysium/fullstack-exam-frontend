@@ -1,13 +1,16 @@
 import styles from "./pagination.module.scss";
-import useProducts from "./useProducts";
-import useProductQueryStore from "./store";
-import { Icon } from "../_ui-elements";
+import { Icon } from "..";
 import { useLayoutEffect } from "react";
 
-const Pagination = () => {
-  const { data } = useProducts();
+interface Props {
+  data: any;
+  query: {
+    page: number;
+  };
+  setPage: (page: number) => void;
+}
 
-  const { productQuery, setPage } = useProductQueryStore();
+const Pagination = ({ data, query, setPage }: Props) => {
 
   // smooth scroll to the top of the page when the page changes
   useLayoutEffect(() => {
@@ -17,10 +20,10 @@ const Pagination = () => {
   const handlePaginate = (action: "NEXT_PAGE" | "PREVIOUS_PAGE" | "TO_PAGE", page?: number) => {
     switch (action) {
       case "NEXT_PAGE":
-        setPage(productQuery.page + 1);
+        setPage(query.page + 1);
         break;
       case "PREVIOUS_PAGE":
-        setPage(productQuery.page - 1);
+        setPage(query.page - 1);
         break;
       case "TO_PAGE":
         if (page) setPage(page);
@@ -44,7 +47,7 @@ const Pagination = () => {
         {Array.from({ length: data?.totalPages ?? 1 }).map((_, page) => (
           page += 1, // convert 0-based page to 1-based page
           <li key={page} className={styles.page}>
-            <button className={`${styles.paginationButton} ${productQuery.page == page ? styles.pageActive : ""}`} onClick={() => handlePaginate("TO_PAGE", page)}>
+            <button className={`${styles.paginationButton} ${query.page == page ? styles.pageActive : ""}`} onClick={() => handlePaginate("TO_PAGE", page)}>
               <span>{page}</span>
             </button>
           </li>
