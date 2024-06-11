@@ -15,6 +15,7 @@ const useProducts = () => {
     queryFn: () => apiClient.getAll({
       params: {
         page: productQuery.page,
+        cuisine: productQuery.cuisine,
       },
     }),
     staleTime: ms("6h"),

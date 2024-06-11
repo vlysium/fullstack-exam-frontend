@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../../auth";
+// import { useAuth } from "../../auth";
 import styles from "./navigation.module.scss";
 import Icon from "./../icon/Icon";
 
@@ -10,7 +10,7 @@ export interface NavigationItem {
 }
 
 const Navigation = () => {
-  const { logout } = useAuth();
+  // const { logout } = useAuth();
 
   const location = useLocation()
 

@@ -1,3 +1,5 @@
+import { Cuisine, Menu } from "./Category";
+
 export interface Product {
   _id:  string;
   name: string;
@@ -10,7 +12,7 @@ export interface Product {
     alt: string;
   };
   category: {
-    cuisine: string[];
-    menu: string[];
+    cuisine: Cuisine;
+    menu: Menu;
   };
 }

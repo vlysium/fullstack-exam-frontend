@@ -12,7 +12,7 @@ const ProductList = () => {
 
   const skeletons = Array.from({ length: 12 })
 
-  if (isLoading) {
+  if (!products || isLoading) {
     return (
       <ul className={styles.productList}>
         {skeletons.map(
@@ -27,13 +27,13 @@ const ProductList = () => {
   return (
     <>
       <ul className={styles.productList}>
-        {products?.items.map(
+        {products.items.map(
           (product) => (
             <ProductCard key={product._id} product={product} />
           )
         )}
       </ul>
-      <Pagination data={products} query={productQuery} setPage={setPage} />
+      {products.items.length > 0 && <Pagination data={products} query={productQuery} setPage={setPage} />}
     </>
   )
 }

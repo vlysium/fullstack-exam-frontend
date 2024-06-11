@@ -3,3 +3,4 @@ export { default as Navigation } from "./navigation/Navigation";
 export { default as Icon } from "./icon/Icon";
 export { default as StarRating } from "./star-rating/StarRating";
 export { default as Pagination } from "./pagination/Pagination";
+export { default as DropdownMenu } from "./dropdown/DropdownMenu";
