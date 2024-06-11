@@ -64,7 +64,7 @@ class ApiClient<T> {
     }
   }
 
-  // products endpoints
+  // fetch endpoints
 
   getAll = async (config?: AxiosRequestConfig) => {
     const response = await axiosInstance.get<FetchResponse<T>>(`${this.endpoint}`, config);
