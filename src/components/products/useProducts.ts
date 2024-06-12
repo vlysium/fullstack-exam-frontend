@@ -16,6 +16,7 @@ const useProducts = () => {
       params: {
         page: productQuery.page,
         cuisine: productQuery.cuisine,
+        menu: productQuery.menu,
       },
     }),
     staleTime: ms("6h"),

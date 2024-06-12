@@ -36,8 +36,11 @@
   background-color: $color-gray-50;
   border: 1px solid $color-gray-300;
   border-radius: 0.5rem;
-  width: 12rem;
   box-shadow: 0 4px 6px -1px rgba($color-gray-950, 0.1);
+
+  width: 12rem;
+  max-height: 50vh;
+  overflow-y: auto;
 
   transform-origin: top left;
 
