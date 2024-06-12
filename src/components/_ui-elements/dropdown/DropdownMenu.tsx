@@ -18,6 +18,11 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
 
   useClickOutside(dropdownRef, () => setIsOpen(false));
 
+  const handleChange = (value: string | null) => {
+    setState(value);
+    setIsOpen(false);
+  }
+
   return (
     <div ref={dropdownRef} className={styles.dropdown}>
       <button className={`${styles.dropdownButton} ${isOpen ? styles.open : ""}`} onClick={() => setIsOpen(isOpen => !isOpen)}>
@@ -29,7 +34,7 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
           <label className={styles.dropdownOption}>
             All
             <input
-              onChange={() => setState(null)}
+              onChange={() => handleChange(null)}
               className={styles.dropdownOptionInput}
               type="radio"
               name={identifier}
@@ -41,7 +46,7 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
             <label className={styles.dropdownOption} key={index}>
               {item}
               <input
-                onChange={(event) => setState(event.target.value)}
+                onChange={(event) => handleChange(event.target.value)}
                 className={styles.dropdownOptionInput}
                 type="radio"
                 name={identifier}
