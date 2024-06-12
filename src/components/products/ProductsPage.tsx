@@ -1,6 +1,6 @@
 import ProductList from "./ProductList";
 import styles from "./products.module.scss";
-import { DropdownMenu } from "../_ui-elements";
+import { DropdownMenu, Icon } from "../_ui-elements";
 import useCuisines from "./useCuisines";
 import useMenus from "./useMenus";
 import useProductQueryStore from "./store";
@@ -11,12 +11,16 @@ const ProductsPage = () => {
   const { data: cuisines } = useCuisines()
   const { data: menus } = useMenus()
 
-  const { productQuery, setCuisine, setMenu } = useProductQueryStore();
+  const { productQuery, resetQuery, setCuisine, setMenu } = useProductQueryStore();
 
   return (
     <section className={styles.page}>
       <h1>ProductsPage</h1>
       <nav className={styles.filterWrapper}>
+        <button className={styles.resetQueryButton} onClick={resetQuery} disabled={!(productQuery.cuisine || productQuery.menu)}>
+          <Icon name="ink_eraser" />
+          Clear
+        </button>
         <DropdownMenu
           text="Cuisine"
           icon="filter_list"

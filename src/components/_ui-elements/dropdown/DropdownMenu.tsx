@@ -39,7 +39,7 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
               type="radio"
               name={identifier}
               value="All"
-              defaultChecked
+              checked={state === undefined || state === null}
             />
           </label>
           {data?.map((item: string, index: number) => (

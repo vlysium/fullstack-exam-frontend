@@ -10,6 +10,7 @@ interface ProductQuery {
 interface ProductQueryStore {
   productQuery: ProductQuery;
   setPage: (page: number) => void;
+  resetQuery: () => void;
   setCuisine: (cuisine: Cuisine | null) => void;
   setMenu: (menu: Menu | null) => void;
 }
@@ -17,6 +18,7 @@ interface ProductQueryStore {
 const useProductQueryStore = create<ProductQueryStore>((set) => ({
   productQuery: { page: 1 },
   setPage: (page) => set((store) => ({ productQuery: { ...store.productQuery, page } })),
+  resetQuery: () => set({ productQuery: { page: 1 } }),
   setCuisine: (cuisine) => set((store) => ({ productQuery: { ...store.productQuery, cuisine } })),
   setMenu: (menu) => set((store) => ({ productQuery: { ...store.productQuery, menu } })),
 }));
