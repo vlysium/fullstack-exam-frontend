@@ -1,4 +1,5 @@
-export type Cuisine = string
+export interface Cuisine {
+  name: string
   | "Scandinavian"
   | "British & Irish"
   | "Mediterranean"
@@ -7,10 +8,22 @@ export type Cuisine = string
   | "East Asian"
   | "South Asian"
   | "North American"
-  | "Latin American"
-;
+  | "Latin American";
 
-export type Menu = string
+  slug: string
+  | "scandinavian"
+  | "british-irish"
+  | "mediterranean"
+  | "eastern-european"
+  | "ottoman"
+  | "east-asian"
+  | "south-asian"
+  | "north-american"
+  | "latin-american";
+}
+
+export interface Menu {
+  name: string
   | "Soups"
   | "Salads"
   | "Noodles"
@@ -24,5 +37,21 @@ export type Menu = string
   | "Desserts"
   | "Beverages"
   | "Alcohol"
-  | "Snacks"
-;
+  | "Snacks";
+
+  slug: string
+  | "soups"
+  | "salads"
+  | "noodles"
+  | "pasta"
+  | "bread"
+  | "rice"
+  | "meat"
+  | "fried"
+  | "grilled"
+  | "seafood"
+  | "desserts"
+  | "beverages"
+  | "alcohol"
+  | "snacks";
+}

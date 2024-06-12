@@ -6,12 +6,12 @@ import useClickOutside from "./useClickOutside";
 interface Props {
   text: string;
   icon: string;
-  data: any;
-  state: string;
-  setState: (arg: string | null) => void;
+  data: { name: string, slug: string }[];
+  selectedOption: string;
+  setSelectedOption: (arg: string | null) => void;
 }
 
-const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
+const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption }: Props) => {
   const identifier = useId();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -19,7 +19,7 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
   useClickOutside(dropdownRef, () => setIsOpen(false));
 
   const handleChange = (value: string | null) => {
-    setState(value);
+    setSelectedOption(value);
     setIsOpen(false);
   }
 
@@ -39,19 +39,19 @@ const DropdownMenu = ({ text, icon, data, state, setState }: Props) => {
               type="radio"
               name={identifier}
               value="All"
-              checked={state === undefined || state === null}
+              checked={selectedOption === undefined || selectedOption === null}
             />
           </label>
-          {data?.map((item: string, index: number) => (
+          {data?.map((item, index: number) => (
             <label className={styles.dropdownOption} key={index}>
-              {item}
+              {item.name}
               <input
                 onChange={(event) => handleChange(event.target.value)}
                 className={styles.dropdownOptionInput}
                 type="radio"
                 name={identifier}
-                value={item}
-                checked={state === item}
+                value={item.slug}
+                checked={selectedOption === item.slug}
               />
             </label>
           ))}

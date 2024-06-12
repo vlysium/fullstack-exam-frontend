@@ -11,8 +11,8 @@ export interface Product {
     src: string;
     alt: string;
   };
-  category: {
-    cuisine: Cuisine;
-    menu: Menu;
+  categories: {
+    cuisines: Cuisine[];
+    menus: Menu[];
   };
 }

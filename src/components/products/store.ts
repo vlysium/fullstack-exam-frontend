@@ -1,18 +1,17 @@
 import { create } from "zustand";
-import { Cuisine, Menu } from "../../entities/Category";
 
 interface ProductQuery {
   page: number;
-  cuisine?: Cuisine | null;
-  menu?: Menu | null;
+  cuisine?: string | null;
+  menu?: string | null;
 }
 
 interface ProductQueryStore {
   productQuery: ProductQuery;
   setPage: (page: number) => void;
   resetQuery: () => void;
-  setCuisine: (cuisine: Cuisine | null) => void;
-  setMenu: (menu: Menu | null) => void;
+  setCuisine: (cuisine: string | null) => void;
+  setMenu: (menu: string | null) => void;
 }
 
 const useProductQueryStore = create<ProductQueryStore>((set) => ({

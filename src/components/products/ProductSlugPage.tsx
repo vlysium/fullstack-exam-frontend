@@ -31,12 +31,12 @@ const ProductSlugPage = () => {
           <p className={styles.productDescription}>{product.description}</p>
         </div>
         <div className={styles.productCategoryWrapper}>
-          {Object.keys(product.category).map((category) => (
+          {Object.keys(product.categories).map((category) => (
             <div key={category}>
-              <p className={styles.productCategoryName}>{capitalizeText(category) + "s"}</p>
+              <p className={styles.productCategoryName}>{capitalizeText(category)}</p>
               <ul className={styles.productCategoryList}>
-                {product.category[category as "cuisine" | "menu"].map((item: string) => (
-                  <li key={item} className={styles.productCategoryItem}>{item}</li>
+                {product.categories[category as "cuisines" | "menus"].map((item) => (
+                  <li key={item.slug} className={styles.productCategoryItem}>{item.name}</li>
                 ))}
               </ul>
             </div>

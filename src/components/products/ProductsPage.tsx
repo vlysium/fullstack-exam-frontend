@@ -24,16 +24,16 @@ const ProductsPage = () => {
         <DropdownMenu
           text="Cuisine"
           icon="filter_list"
-          data={cuisines}
-          state={productQuery.cuisine as string}
-          setState={(state) => setCuisine(state as Cuisine)}
+          data={cuisines as unknown as Cuisine[]}
+          selectedOption={productQuery.cuisine as string}
+          setSelectedOption={(option) => setCuisine(option)}
         />
         <DropdownMenu
           text="Menu"
           icon="filter_list"
-          data={menus}
-          state={productQuery.menu as string}
-          setState={(state) => setMenu(state as Menu)}
+          data={menus as unknown as Menu[]}
+          selectedOption={productQuery.menu as string}
+          setSelectedOption={(option) => setMenu(option)}
         />
       </nav>
       <ProductList />
