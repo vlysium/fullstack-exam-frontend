@@ -36,7 +36,7 @@ const ProductSlugPage = () => {
               <p className={styles.productCategoryName}>{capitalizeText(category)}</p>
               <ul className={styles.productCategoryList}>
                 {product.categories[category as "cuisines" | "menus"].map((item) => (
-                  <li key={item.slug} className={styles.productCategoryItem}>{item.name}</li>
+                  <li key={item.value} className={styles.productCategoryItem}>{item.name}</li>
                 ))}
               </ul>
             </div>
