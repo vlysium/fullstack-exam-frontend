@@ -3,7 +3,7 @@ import useProductQueryStore from "./store";
 
 interface SortOption {
   name: string;
-  slug: string;
+  value: string;
 }
 
 const SortSelector = () => {
@@ -12,27 +12,27 @@ const SortSelector = () => {
   const sortOptions: SortOption[] = [
     {
       name: "Alphabetical (A-Z)",
-      slug: "name",
+      value: "name",
     },
     {
       name: "Alphabetical (Z-A)",
-      slug: "-name",
+      value: "-name",
     },
     {
       name: "Lowest price",
-      slug: "price",
+      value: "price",
     },
     {
       name: "Highest price",
-      slug: "-price",
+      value: "-price",
     },
     {
       name: "Lowest rating",
-      slug: "rating",
+      value: "rating",
     },
     {
       name: "Highest rating",
-      slug: "-rating",
+      value: "-rating",
     },
   ]
 

@@ -10,7 +10,7 @@ export interface Cuisine {
   | "North American"
   | "Latin American";
 
-  slug: string
+  value: string
   | "scandinavian"
   | "british-irish"
   | "mediterranean"
@@ -39,7 +39,7 @@ export interface Menu {
   | "Alcohol"
   | "Snacks";
 
-  slug: string
+  value: string
   | "soups"
   | "salads"
   | "noodles"

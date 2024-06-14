@@ -7,7 +7,7 @@ import { ProductQuery } from "../../products/store";
 interface Props {
   text: string;
   icon: string;
-  data: { name: string, slug: string }[];
+  data: { name: string, value: string }[];
   selectedOption: ProductQuery[keyof ProductQuery] | null;
   setSelectedOption: (arg: string | null) => void;
   allOption?: boolean;
@@ -52,8 +52,8 @@ const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption, all
                 className={styles.dropdownOptionInput}
                 type="radio"
                 name={identifier}
-                value={item.slug}
-                checked={selectedOption === item.slug}
+                value={item.value}
+                checked={selectedOption === item.value}
               />
             </label>
           ))}
