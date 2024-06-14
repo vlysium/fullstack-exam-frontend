@@ -27,7 +27,7 @@
   font-weight: 500;
   color: $color-red-500;
 
-  transition-property: background-color;
+  transition-property: background-color, color, border-color;
   transition-duration: 0.15s;
 
   &:hover {
@@ -37,7 +37,7 @@
   &:disabled {
     background-color: $color-gray-200;
     color: $color-gray-400;
-    border-color: $color-gray-400;
+    border-color: $color-gray-200;
   }
 }
 
