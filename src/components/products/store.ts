@@ -1,9 +1,10 @@
 import { create } from "zustand";
 
-interface ProductQuery {
+export interface ProductQuery {
   page: number;
   cuisine?: string | null;
   menu?: string | null;
+  sortBy?: string | null;
 }
 
 interface ProductQueryStore {
@@ -12,6 +13,7 @@ interface ProductQueryStore {
   resetQuery: () => void;
   setCuisine: (cuisine: string | null) => void;
   setMenu: (menu: string | null) => void;
+  setSortBy: (sortBy: string | null) => void;
 }
 
 const useProductQueryStore = create<ProductQueryStore>((set) => ({
@@ -20,6 +22,7 @@ const useProductQueryStore = create<ProductQueryStore>((set) => ({
   resetQuery: () => set({ productQuery: { page: 1 } }),
   setCuisine: (cuisine) => set((store) => ({ productQuery: { ...store.productQuery, cuisine } })),
   setMenu: (menu) => set((store) => ({ productQuery: { ...store.productQuery, menu } })),
+  setSortBy: (sortBy) => set((store) => ({ productQuery: { ...store.productQuery, sortBy } })),
 }));
 
 export default useProductQueryStore;

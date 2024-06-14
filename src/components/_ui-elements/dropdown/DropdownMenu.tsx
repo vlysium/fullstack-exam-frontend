@@ -2,16 +2,18 @@ import { useId, useState, useRef } from "react";
 import styles from "./dropdown-menu.module.scss";
 import Icon from "../icon/Icon";
 import useClickOutside from "./useClickOutside";
+import { ProductQuery } from "../../products/store";
 
 interface Props {
   text: string;
   icon: string;
   data: { name: string, slug: string }[];
-  selectedOption: string;
+  selectedOption: ProductQuery[keyof ProductQuery] | null;
   setSelectedOption: (arg: string | null) => void;
+  allOption?: boolean;
 }
 
-const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption }: Props) => {
+const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption, allOption = true }: Props) => {
   const identifier = useId();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -31,7 +33,7 @@ const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption }: P
       </button>
       <div className={`${styles.dropdownMenu} ${isOpen ? styles.open : ""}`}>
         <div className={styles.dropdownMenuOptionList}>
-          <label className={styles.dropdownOption}>
+          {allOption && <label className={styles.dropdownOption}>
             All
             <input
               onChange={() => handleChange(null)}
@@ -41,7 +43,7 @@ const DropdownMenu = ({ text, icon, data, selectedOption, setSelectedOption }: P
               value="All"
               checked={selectedOption === undefined || selectedOption === null}
             />
-          </label>
+          </label>}
           {data?.map((item, index: number) => (
             <label className={styles.dropdownOption} key={index}>
               {item.name}

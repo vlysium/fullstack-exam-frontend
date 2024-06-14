@@ -17,6 +17,7 @@ const useProducts = () => {
         page: productQuery.page,
         cuisine: productQuery.cuisine,
         menu: productQuery.menu,
+        sortBy: productQuery.sortBy,
       },
     }),
     staleTime: ms("6h"),
