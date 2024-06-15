@@ -11,13 +11,13 @@ interface Props {
 const BasketControls = ({ product }: Props) => {
   const { basket } = useBasketStore();
 
-  const productInBasket = basket.items.find((item) => item.product._id === product._id);
+  const productQuantity = basket.items.find((item) => item.product._id === product._id)?.quantity;
 
   return (
     <>
       <div className={styles.basketControls}>
-        <RemoveFromBasket product={product} />
-        <span className={styles.quantity}>{productInBasket ? productInBasket.quantity : 0}</span>
+        <RemoveFromBasket product={product} productQuantity={productQuantity} />
+        <span className={styles.quantity}>{productQuantity ? productQuantity : 0}</span>
         <AddToBasket product={product} />
       </div>
     </>

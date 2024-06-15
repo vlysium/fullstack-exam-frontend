@@ -48,6 +48,11 @@
 }
 
 .navigation-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+
   font-size: $text-sm;
   font-weight: 500;
 
@@ -58,4 +63,17 @@
 
 .icon::before {
   font-size: $text-3xl;
+}
+
+.basket-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-primary-400;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2rem;
+
+  font-size: $text-xs;
+  color: $color-gray-100
 }

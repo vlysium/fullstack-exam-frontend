@@ -14,7 +14,7 @@
 
 .add-to-basket, .remove-from-basket {
   background-color: $color-primary-500;
-  border: none;
+  border: 1px solid $color-primary-500;
   border-radius: 2rem;
   padding: 0.5rem;
   aspect-ratio: 1 / 1;
@@ -23,11 +23,17 @@
   font-weight: 600;
   color: $color-gray-100;
 
-  transition-property: background-color;
+  transition-property: background-color, color, border-color;
   transition-duration: 0.2s;
 
   &:hover {
     background-color: $color-primary-600;
+  }
+
+  &:disabled {
+    background-color: $color-gray-100;
+    border: 1px solid $color-gray-300;
+    color: $color-gray-400;
   }
 }
 

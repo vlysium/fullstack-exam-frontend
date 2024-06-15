@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 // import { useAuth } from "../../auth";
 import styles from "./navigation.module.scss";
 import Icon from "./../icon/Icon";
+import BasketItemsQuantity from "./BasketItemsQuantity";
 
 export interface NavigationItem {
   label: string;
@@ -29,7 +30,10 @@ const Navigation = () => {
             <li key={item.label} className={styles.navigationLi}>
               <Link to={item.href} className={`${styles.navigationItem} ${location.pathname.includes(item.href) && styles.active}`}>
                 <Icon name={item.icon} className={styles.icon}/>
-                <span className={styles.navigationItemLabel}>{item.label}</span>
+                <span className={styles.navigationItemLabel}>
+                  {item.label}
+                  {item.label === "Basket" && <BasketItemsQuantity />}
+                </span>
               </Link>
             </li>
           )

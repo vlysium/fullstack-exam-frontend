@@ -5,9 +5,10 @@ import { Icon } from "../_ui-elements";
 
 interface Props {
   product: Product;
+  productQuantity: number | undefined;
 }
 
-const RemoveFromBasket = ({ product }: Props) => {
+const RemoveFromBasket = ({ product, productQuantity }: Props) => {
   const { removeFromBasket } = useBasketStore();
 
   const productItem = {
@@ -22,7 +23,7 @@ const RemoveFromBasket = ({ product }: Props) => {
   }
 
   return (
-    <button className={styles.addToBasket} onClick={handleRemove}>
+    <button className={styles.addToBasket} onClick={handleRemove} disabled={productQuantity == undefined}>
       <Icon name="remove" />
     </button>
   )
