@@ -1,0 +1,40 @@
+@use "../../variables" as *;
+
+.basket-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-primary-100;
+  padding: 0.25rem;
+  border-radius: 2rem;
+  border: 1px solid $color-primary-500;
+  width: fit-content;
+}
+
+.add-to-basket, .remove-from-basket {
+  background-color: $color-primary-500;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  aspect-ratio: 1 / 1;
+
+  font-size: $text-md;
+  font-weight: 600;
+  color: $color-gray-100;
+
+  transition-property: background-color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: $color-primary-600;
+  }
+}
+
+.quantity {
+  width: 4rem;
+  font-size: $text-md;
+  font-weight: 600;
+  text-align: center;
+  color: $color-gray-900;
+}

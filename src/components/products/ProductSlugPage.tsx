@@ -3,6 +3,7 @@ import useProduct from "./useProduct";
 import styles from "./product-slug.module.scss";
 import { StarRating } from "../_ui-elements";
 import capitalizeText from "../../services/capitalizeText";
+import { BasketControls } from "../basket";
 
 const ProductSlugPage = () => {
   const { slug } = useParams();
@@ -43,6 +44,7 @@ const ProductSlugPage = () => {
           ))}
         </div>
         <p className={styles.productPrice}>DKK {product.price},-</p>
+        <BasketControls product={product} />
       </div>
     </section>
   )

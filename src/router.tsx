@@ -3,6 +3,7 @@ import App from "./components/App";
 import { SignupPage, LoginPage } from "./components/auth";
 import AppAuthRoutes from "./components/AppAuthRoutes";
 import { ProductSlugPage, ProductsPage } from "./components/products";
+import { BasketPage } from "./components/basket";
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/basket",
-        element: <div>Basket</div>
+        element: <BasketPage />
       },
       {
         path: "/profile",
