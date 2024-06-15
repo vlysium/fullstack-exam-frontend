@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { User } from "../../entities/User";
-import { createJSONStorage, persist, StateStorage } from "zustand/middleware";
-import { decryptData, encryptData } from "../../services/cryptData";
+import { createJSONStorage, persist } from "zustand/middleware";
+import encryptedStorage from "../../services/encryptedStorage";
 
 interface AuthState {
   token: string | null;
@@ -13,29 +13,8 @@ interface AuthState {
   removeUser: () => void;
 }
 
-// storage with encryption to protect against editing the token and user
-const encryptedStorage: StateStorage = {
-  getItem: (name) => {
-    const encryptedData = localStorage.getItem(name);
-    if (!encryptedData) return null;
-    try {
-      return decryptData(encryptedData);
-    } catch (error) {
-      console.error("Error decrypting data from localStorage", error);
-      return null;
-    }
-  },
-  setItem: (name, value) => {
-    const encryptedData = encryptData(value);
-    localStorage.setItem(name, encryptedData);
-  },
-  removeItem: (name) => {
-    localStorage.removeItem(name);
-  }
-};
-
 const useAuthStore = create<AuthState>()(
-  persist( // persist the token and user in sessionStorage
+  persist( // persist the token and user in localStorage
     (set) => ({
       token: null,
       setToken: (token) => set({ token }),
