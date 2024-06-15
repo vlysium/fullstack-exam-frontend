@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       },
       { 
         path: "/home",
-        element: <div>Home</div>
+        element: <h1>Home</h1>
       },
       { 
         path: "/products",
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <div>Profile</div>
+        element: <h1>Home</h1>
       },
     ]
   },

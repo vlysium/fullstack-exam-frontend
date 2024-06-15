@@ -14,7 +14,7 @@ const ProductsPage = () => {
 
   return (
     <section className={styles.page}>
-      <h1>ProductsPage</h1>
+      <h1>Products</h1>
       <nav className={styles.filterWrapper}>
         <button className={styles.resetQueryButton} onClick={resetQuery} disabled={!isQuerySet}>
           <Icon name="ink_eraser" />

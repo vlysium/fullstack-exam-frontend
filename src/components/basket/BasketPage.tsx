@@ -3,7 +3,7 @@ import styles from "./basket.module.scss";
 const BasketPage = () => {
   return (
     <section className={styles.page}>
-      <div>BasketPage</div>
+      <h1>Basket</h1>
     </section>
   )
 }
