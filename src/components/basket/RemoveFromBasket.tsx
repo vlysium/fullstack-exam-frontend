@@ -11,19 +11,12 @@ interface Props {
 const RemoveFromBasket = ({ product, productQuantity }: Props) => {
   const { removeFromBasket } = useBasketStore();
 
-  const productItem = {
-    _id: product._id,
-    name: product.name,
-    price: product.price,
-    image: product.image,
-  };
-
   const handleRemove = () => {
-    removeFromBasket(productItem);
+    removeFromBasket(product);
   }
 
   return (
-    <button className={styles.addToBasket} onClick={handleRemove} disabled={productQuantity == undefined}>
+    <button className={styles.removeFromBasket} onClick={handleRemove} disabled={productQuantity == undefined}>
       <Icon name="remove" />
     </button>
   )

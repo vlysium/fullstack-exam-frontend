@@ -1,13 +1,7 @@
+import { Product } from "./Product";
+
 export interface BasketItem {
-  product: {
-    _id: string;
-    name: string;
-    price: number;
-    image: {
-      src: string;
-      alt: string;
-    };
-  };
+  product: Product;
   quantity: number;
 }
 

@@ -1,1 +1,132 @@
 @use "../../variables" as *;
+
+.page {
+  max-width: $screen-sm;
+  margin-inline: auto;
+}
+
+.basket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: calc(50vh + 5rem);
+  overflow-y: auto;
+
+  @media (min-width: $screen-sm) {
+    gap: 1rem;
+  }
+
+  li {
+    display: contents;
+  } 
+}
+
+.product-card {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: $color-gray-100;
+  box-shadow: 0 2px 4px -2px rgba($color-gray-950, 0.1);
+
+  @media (min-width: $screen-sm) {
+    gap: 1rem;
+  }
+}
+
+.product-image {
+  width: 5rem;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 0.5rem;
+
+  @media (min-width: $screen-sm) {
+    width: 6rem;
+  }
+}
+
+.product-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.product-name {
+  font-size: $text-md;
+  font-weight: 600;
+  color: $color-gray-900;
+}
+
+.product-price {
+  font-size: $text-md;
+  font-weight: 700;
+  text-align: right;
+  color: $color-primary-600;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+}
+
+.total-label {
+  font-size: $text-lg;
+  font-weight: 600;
+}
+
+.total-number {
+  font-size: $text-2xl;
+  font-weight: 700;
+  color: $color-primary-600;
+}
+
+.empty-basket {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2.5rem;
+  border: 2px dashed $color-gray-300;
+  border-radius: 0.5rem;
+  background-color: $color-gray-100;
+
+  color: $color-gray-600;
+  font-size: $text-lg;
+  font-weight: 500;
+  text-align: center;
+
+  transition-property: border;
+  transition-duration: 0.15s;
+
+  &:hover {
+    border: 2px dashed transparent;
+  }
+}
+
+.empty-basket-call-to-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-primary-500;
+  font-size: $text-md;
+}

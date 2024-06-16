@@ -86,7 +86,7 @@ const useBasketStore = create<BasketState>()(
     }),
     {
       name: "basket-storage",
-      storage: createJSONStorage(() => encryptedStorage)
+      storage: createJSONStorage(() => localStorage)
     }
   )
 );

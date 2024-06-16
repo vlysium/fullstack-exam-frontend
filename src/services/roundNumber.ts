@@ -1,8 +1,8 @@
 const roundNumber = (number: number): number => {
-  const floorNumber = Math.floor(number * 100) / 100;
-  // console.log("floorNumber:", floorNumber)
+  const roundNumber = Math.round(number * 100) / 100;
+  // console.log("roundNumber:", roundNumber)
 
-  const twoDecimalNumbers = floorNumber.toFixed(2);
+  const twoDecimalNumbers = roundNumber.toFixed(2);
   // console.log("twoDecimalNumbers:", twoDecimalNumbers)
 
   const stringToNumber = parseFloat(twoDecimalNumbers);

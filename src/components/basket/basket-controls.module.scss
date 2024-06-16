@@ -10,9 +10,42 @@
   border-radius: 2rem;
   border: 1px solid $color-primary-500;
   width: fit-content;
+
+  &.compact {
+    padding: 0;
+    border-radius: 0.5rem;
+
+    .add-to-basket {
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    
+    .remove-from-basket {
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .add-to-basket, .remove-from-basket {
+      padding: 0.25rem;
+      border: none;
+
+      background-color: transparent;
+      color: $color-primary-500;
+
+      &:hover {
+        background-color: $color-primary-200;
+      }
+    }
+
+    .quantity {
+      width: 2rem;
+      font-size: $text-sm;
+    }
+  }
 }
 
 .add-to-basket, .remove-from-basket {
+  display: flex;
+  align-items: center;
+
   background-color: $color-primary-500;
   border: 1px solid $color-primary-500;
   border-radius: 2rem;
@@ -20,7 +53,7 @@
   aspect-ratio: 1 / 1;
 
   font-size: $text-md;
-  font-weight: 600;
+  font-weight: 700;
   color: $color-gray-100;
 
   transition-property: background-color, color, border-color;
@@ -42,5 +75,9 @@
   font-size: $text-md;
   font-weight: 600;
   text-align: center;
-  color: $color-gray-900;
+  color: $color-primary-900;
+
+  &::selection {
+    background-color: transparent;
+  }
 }

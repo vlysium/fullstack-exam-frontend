@@ -10,15 +10,8 @@ interface Props {
 const AddToBasket = ({ product }: Props) => {
   const { addToBasket} = useBasketStore();
 
-  const productItem = {
-    _id: product._id,
-    name: product.name,
-    price: product.price,
-    image: product.image,
-  };
-
   const handleAdd = () => {
-    addToBasket(productItem);
+    addToBasket(product);
   }
 
   return (
