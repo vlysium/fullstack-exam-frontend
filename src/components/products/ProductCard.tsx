@@ -14,7 +14,7 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <li>
-      <Link className={styles.productItem} to={product.slug}>
+      <Link className={styles.productItem} to={`/product/${product.slug}`}>
         <article className={styles.productCard}>
           <div className={styles.productCardImageWrapper}>
             <img className={styles.productCardImage} src={import.meta.env.VITE_BACKEND_URL + product.image.src} alt={product.image.alt} loading="lazy"/>
