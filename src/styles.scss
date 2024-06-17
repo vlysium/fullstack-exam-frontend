@@ -29,10 +29,17 @@ body {
 }
 
 main.main-app {
+  max-height: calc(100vh - 4.5rem); // account for the bottom navigation
+  overflow-y: auto;
+
   max-width: $screen-xl;
   margin-inline: auto;
   margin-bottom: 5rem;
   padding: 0.625rem;
+
+  @media (min-width: $screen-xl) {
+    max-height: unset;
+  }
 }
 
 input {

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const BasketListItem = ({ item }: Props) => {
-  console.log(item.product)
+  // console.log(item.product)
 
   return (
     <li>

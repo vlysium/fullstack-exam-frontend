@@ -3,13 +3,16 @@
 .page {
   max-width: $screen-sm;
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .basket-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: calc(50vh + 5rem);
+  max-height: calc(72vh - 5rem);
   overflow-y: auto;
 
   @media (min-width: $screen-sm) {
@@ -84,7 +87,6 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 1.5rem;
   padding: 0.5rem;
 }
 
@@ -97,6 +99,31 @@
   font-size: $text-2xl;
   font-weight: 700;
   color: $color-primary-600;
+}
+
+.checkout-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  margin-top: 1rem;
+  margin-left: auto;
+
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  background-color: $color-primary-500;
+  color: $color-gray-50;
+  font-size: $text-md;
+  font-weight: 600;
+
+  transition-property: background-color;
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: $color-primary-600;
+  }
 }
 
 .empty-basket {
