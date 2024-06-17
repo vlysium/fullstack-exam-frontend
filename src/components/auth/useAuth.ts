@@ -1,10 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import useAuthStore from "./store";
+import useBasketStore from "../basket/store";
 import ApiClient from "../../services/apiClient";
+import Cookies from "js-cookie";
 
 const useAuth = (endpoint?: "signup" | "login") => {
-  const { setToken, removeToken, setUser, removeUser } = useAuthStore();
+  const { setUser, removeUser } = useAuthStore();
+  const { clearBasket } = useBasketStore();
 
   const authenticateMutation = useMutation(
     async (data: object) => {
@@ -17,7 +20,7 @@ const useAuth = (endpoint?: "signup" | "login") => {
     },
     {
       onSuccess: (response) => {
-        setToken(response.token);
+        Cookies.set("token", response.token, { expires: 1 }); // expires in 1 day
         setUser(response.user);
         if (endpoint === "signup") toast.success(`Account created successfully! Welcome ${response.user.name}!`);
         if (endpoint === "login") toast.success(`Welcome back, ${response.user.name}`);
@@ -34,9 +37,10 @@ const useAuth = (endpoint?: "signup" | "login") => {
   };
 
   const logout = () => {
-    removeToken();
+    Cookies.remove("token");
     removeUser();
-    useAuthStore.persist.clearStorage();
+    clearBasket();
+
     toast.info("You have logged out");
   }
 

@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { User } from "../entities/User";
 import { toast } from "react-toastify";
-
+import Cookies from 'js-cookie';
 interface AuthResponse {
   token: string;
   user: User;
@@ -26,6 +26,7 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL + "/api",
   headers: {
     "Content-Type": "application/json",
+    "x-auth-token": Cookies.get("token"),
   },
 });
 
