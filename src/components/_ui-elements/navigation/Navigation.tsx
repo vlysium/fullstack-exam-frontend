@@ -19,7 +19,7 @@ const Navigation = () => {
     { label: "Home", href: "/home", icon: "home" },
     { label: "Menu", href: "/products", icon: "restaurant" },
     { label: "Basket", href: "/basket", icon: "shopping_bag" },
-    { label: "Profile", href: "/profile", icon: "person" },
+    { label: "Profile", href: "/user", icon: "person" },
   ]
 
   return (

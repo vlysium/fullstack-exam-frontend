@@ -4,6 +4,7 @@ import { SignupPage, LoginPage } from "./components/auth";
 import AppAuthRoutes from "./components/AppAuthRoutes";
 import { ProductSlugPage, ProductsPage } from "./components/products";
 import { BasketPage } from "./components/basket";
+import { UserPage } from "./components/user";
 
 
 const router = createBrowserRouter([
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
         element: <BasketPage />
       },
       {
-        path: "/profile",
-        element: <h1>Profile</h1>
+        path: "/user",
+        element: <UserPage />
       },
     ]
   },
