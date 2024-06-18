@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { User } from "../entities/User";
 import { toast } from "react-toastify";
 import Cookies from 'js-cookie';
@@ -22,26 +22,40 @@ interface Pagination {
   limit: number;
 }
 
-const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL + "/api",
-  headers: {
-    "Content-Type": "application/json",
-    "x-auth-token": Cookies.get("token"),
-  },
-});
-
 class ApiClient<T> {
   endpoint: string;
+  axiosInstance: AxiosInstance;
 
   constructor(endpoint: string) {
     this.endpoint = endpoint;
+
+    this.axiosInstance = axios.create({
+      baseURL: import.meta.env.VITE_BACKEND_URL + "/api",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // request interceptor to dynamically set x-auth-token header
+    this.axiosInstance.interceptors.request.use(
+      (config) => {
+        const token = Cookies.get("token");
+        if (token) {
+          config.headers["x-auth-token"] = token;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
   }
 
   // auth endpoints
 
   signup = async (data: T) => {
     try {
-      const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -54,7 +68,7 @@ class ApiClient<T> {
 
   login = async (data: T) => {
     try {
-      const response = await axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -67,7 +81,7 @@ class ApiClient<T> {
 
   getUser = async () => {
     try {
-      const response = await axiosInstance.get("user");
+      const response = await this.axiosInstance.get("user");
       return response.data;
     } catch (error) {
       if (error.response && (error.response.status === 401 || error.response.status === 403)) {
@@ -80,12 +94,12 @@ class ApiClient<T> {
   // fetch endpoints
 
   getAll = async (config?: AxiosRequestConfig) => {
-    const response = await axiosInstance.get<FetchResponse<T>>(`${this.endpoint}`, config);
+    const response = await this.axiosInstance.get<FetchResponse<T>>(`${this.endpoint}`, config);
     return response.data;
   }
 
   getOne = async (slug: string) => {
-    const response = await axiosInstance.get<T>(`${this.endpoint}/${slug}`);
+    const response = await this.axiosInstance.get<T>(`${this.endpoint}/${slug}`);
     return response.data;
   }
   
