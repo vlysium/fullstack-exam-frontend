@@ -5,25 +5,48 @@ import useBasketStore from "../basket/store";
 import ApiClient from "../../services/apiClient";
 import Cookies from "js-cookie";
 
-const useAuth = (endpoint?: "signup" | "login") => {
-  const { setUser, removeUser } = useAuthStore();
-  const { clearBasket } = useBasketStore();
+export interface Login {
+  email: string;
+  password: string;
+}
 
-  const authenticateMutation = useMutation(
-    async (data: object) => {
-      if (!endpoint) {
-        throw new Error("You must provide an endpoint to useAuth");
-      }
-      const apiClient = new ApiClient(endpoint);
+export interface Signup {
+  name: string;
+  email: string;
+  password: string;
+}
+
+type AuthData = Login | Signup;
+type MutationType = "login" | "signup";
+
+const useAuthMutation = <T extends AuthData>(type: MutationType) => {
+  const { setUser } = useAuthStore();
+
+  return useMutation(
+    async (data: T) => {
+      const apiClient = new ApiClient(type);
       const dataJSON = JSON.stringify(data);
-      return apiClient[endpoint](dataJSON);
+
+      switch (type) {
+        case "login":
+          return apiClient.login(dataJSON);
+        case "signup":
+          return apiClient.signup(dataJSON);
+      }
     },
     {
       onSuccess: (response) => {
         Cookies.set("token", response.token, { expires: 1 }); // expires in 1 day
         setUser(response.user);
-        if (endpoint === "signup") toast.success(`Account created successfully! Welcome ${response.user.name}!`);
-        if (endpoint === "login") toast.success(`Welcome back, ${response.user.name}`);
+
+        switch (type) {
+          case "login":
+            toast.success(`Welcome back, ${response.user.name}`);
+            break;
+          case "signup":
+            toast.success(`Account created successfully! Welcome ${response.user.name}!`);
+            break;
+        }
       },
       onError: (error: any) => {
         // console.error(error.response.data.message);
@@ -31,20 +54,31 @@ const useAuth = (endpoint?: "signup" | "login") => {
       }
     }
   );
+};
 
-  const authenticate = (data: object) => {
-    authenticateMutation.mutate(data);
+const useAuth = () => {
+  const { removeUser } = useAuthStore();
+  const { clearBasket } = useBasketStore();
+
+  const loginMutation = useAuthMutation<Login>("login");
+  const signupMutation = useAuthMutation<Signup>("signup");
+
+  const login = (data: Login) => {
+    loginMutation.mutate(data);
+  };
+
+  const signup = (data: Signup) => {
+    signupMutation.mutate(data);
   };
 
   const logout = () => {
     Cookies.remove("token");
     removeUser();
     clearBasket();
-
     toast.info("You have logged out");
   }
 
-  return { authenticate, logout };
+  return { login, signup, logout };
 };
 
 export default useAuth;

@@ -1,21 +1,21 @@
-import useAuth from "./useAuth";
+import useAuth, { Signup } from "./useAuth";
 import { InputGroup } from "../_ui-elements";
 import { useState } from "react";
 import styles from "./auth.module.scss";
 import { Link } from "react-router-dom";
 
 const SignupPage = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState<Signup>({ name: "", email: "", password: "" });
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
-  const { authenticate } = useAuth("signup");
+  const { signup } = useAuth();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    authenticate(formData);
+    signup(formData);
   };
 
   const isFormEmpty = formData.name && formData.email && formData.password;

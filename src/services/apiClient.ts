@@ -65,6 +65,18 @@ class ApiClient<T> {
     }
   }
 
+  getUser = async () => {
+    try {
+      const response = await axiosInstance.get("user");
+      return response.data;
+    } catch (error) {
+      if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+        throw new Error("Unauthorized");
+      }
+      throw error;
+    }
+  }
+
   // fetch endpoints
 
   getAll = async (config?: AxiosRequestConfig) => {
