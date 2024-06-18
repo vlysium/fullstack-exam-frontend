@@ -54,8 +54,9 @@ class ApiClient<T> {
   // auth endpoints
 
   signup = async (data: T) => {
+    const dataJSON = JSON.stringify(data);
     try {
-      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, dataJSON);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -67,8 +68,9 @@ class ApiClient<T> {
   }
 
   login = async (data: T) => {
+    const dataJSON = JSON.stringify(data);
     try {
-      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, data);
+      const response = await this.axiosInstance.post<AuthResponse>(`${this.endpoint}`, dataJSON);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -100,6 +102,12 @@ class ApiClient<T> {
 
   getOne = async (slug: string) => {
     const response = await this.axiosInstance.get<T>(`${this.endpoint}/${slug}`);
+    return response.data;
+  }
+
+  create = async (data: T) => {
+    const dataJSON = JSON.stringify(data);
+    const response = await this.axiosInstance.post<T>(`${this.endpoint}`, dataJSON);
     return response.data;
   }
   

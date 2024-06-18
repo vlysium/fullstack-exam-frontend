@@ -20,18 +20,16 @@ type AuthData = Login | Signup;
 type MutationType = "login" | "signup";
 
 const useAuthMutation = <T extends AuthData>(type: MutationType) => {
+  const apiClient = new ApiClient(type);
   const { setUser } = useAuthStore();
 
   return useMutation(
     async (data: T) => {
-      const apiClient = new ApiClient(type);
-      const dataJSON = JSON.stringify(data);
-
       switch (type) {
         case "login":
-          return apiClient.login(dataJSON);
+          return apiClient.login(data);
         case "signup":
-          return apiClient.signup(dataJSON);
+          return apiClient.signup(data);
       }
     },
     {
