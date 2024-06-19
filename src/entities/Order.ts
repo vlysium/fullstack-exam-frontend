@@ -1,4 +1,4 @@
-export interface OrderItem {
+export interface CreateOrderItem {
   product: {
     _id: string;
     name: string;
@@ -7,7 +7,15 @@ export interface OrderItem {
   quantity: number;
 }
 
-export interface Order {
-  items: OrderItem[];
+export interface CreateOrder {
+  items: CreateOrderItem[];
+  items_count: number;
   total: number;
+}
+
+// from database
+
+export interface Order extends CreateOrder {
+  _id: string;
+  created_at: number;
 }

@@ -65,6 +65,7 @@
     background-color: $color-primary-100;
     border: 1px solid $color-primary-300;
     cursor: default;
+    pointer-events: none;
   }
 
   &[disabled] {

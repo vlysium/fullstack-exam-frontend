@@ -4,4 +4,5 @@ export interface User {
   email: string;
   role: "user" | "admin";
   balance: number;
+  created_at: number;
 }
