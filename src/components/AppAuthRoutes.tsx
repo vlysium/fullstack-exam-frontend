@@ -4,9 +4,9 @@ import { useAuthStore } from "./auth"
 const AppAuthRoutes = () => {
   const { user } = useAuthStore()
 
-  // if user is present, redirect to home
+  // if user is present, redirect to products page
   if (user) {
-    return <Navigate to="/home" />
+    return <Navigate to="/products" />
   }
 
   return (

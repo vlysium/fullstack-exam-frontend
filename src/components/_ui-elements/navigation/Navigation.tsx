@@ -16,9 +16,9 @@ const Navigation = () => {
   const location = useLocation()
 
   const navigationItems: NavigationItem[] = [
-    { label: "Home", href: "/home", icon: "home" },
     { label: "Menu", href: "/products", icon: "restaurant" },
     { label: "Basket", href: "/basket", icon: "shopping_bag" },
+    { label: "Orders", href: "/orders", icon: "orders" },
     { label: "Profile", href: "/user", icon: "person" },
   ]
 

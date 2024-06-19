@@ -5,6 +5,7 @@ import AppAuthRoutes from "./components/AppAuthRoutes";
 import { ProductSlugPage, ProductsPage } from "./components/products";
 import { BasketPage } from "./components/basket";
 import { UserPage } from "./components/user";
+import { OrdersPage } from "./components/order";
 
 
 const router = createBrowserRouter([
@@ -12,13 +13,9 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { // redirect "/" to "/home"
+      { // redirect "/" to "/products"
         path: "/",
-        element: <Navigate to="/home" />
-      },
-      { 
-        path: "/home",
-        element: <h1>Home</h1>
+        element: <Navigate to="/products" />
       },
       { 
         path: "/products",
@@ -31,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/basket",
         element: <BasketPage />
+      },
+      {
+        path: "/orders",
+        element: <OrdersPage />
       },
       {
         path: "/user",

@@ -1,6 +1,6 @@
 import styles from "./basket.module.scss";
 import { Icon } from "../_ui-elements";
-import useCheckout from "../order/useCheckout";
+import useCheckout from "../checkout/useCheckout";
 
 const BasketCheckoutButton = () => {
   const { checkout } = useCheckout();
