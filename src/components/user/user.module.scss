@@ -1,0 +1,9 @@
+@use "../../variables" as *;
+
+.page {
+  max-width: $screen-md;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

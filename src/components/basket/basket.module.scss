@@ -1,7 +1,7 @@
 @use "../../variables" as *;
 
 .page {
-  max-width: $screen-sm;
+  max-width: $screen-md;
   margin-inline: auto;
   display: flex;
   flex-direction: column;

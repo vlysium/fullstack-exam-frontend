@@ -68,6 +68,14 @@
   color: $color-gray-900;
 
   cursor: pointer;
+
+  transition-property: background-color, border;
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: $color-gray-200;
+    border: 1px solid $color-gray-500;
+  }
 }
 
 .order-details-summary-id {
@@ -162,4 +170,36 @@
 
 .order-details-created-at {
   font-weight: 500;
+}
+
+.empty-orders {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2.5rem;
+  border: 2px dashed $color-gray-300;
+  border-radius: 0.5rem;
+  background-color: $color-gray-100;
+
+  color: $color-gray-600;
+  font-size: $text-lg;
+  font-weight: 500;
+  text-align: center;
+
+  transition-property: border;
+  transition-duration: 0.15s;
+
+  &:hover {
+    border: 2px dashed transparent;
+  }
+}
+
+.empty-orders-call-to-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: $color-primary-500;
+  font-size: $text-md;
 }
