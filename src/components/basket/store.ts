@@ -14,7 +14,7 @@ interface BasketState {
 const useBasketStore = create<BasketState>()(
   persist( // persist the basket in localStorage
     (set) => ({
-      basket: { items: [], total: 0 },
+      basket: { items: [], items_count: 0, total: 0 },
       addToBasket: (product) => {
         set((state) => {
           const existingItem = state.basket.items.find((item) => item.product._id === product._id);
@@ -36,11 +36,15 @@ const useBasketStore = create<BasketState>()(
       
           // update the total
           const total = updatedItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
+
+          // update the items count
+          const items_count = updatedItems.reduce((total, item) => total + item.quantity, 0);
       
           return {
             basket: {
               ...state.basket,
               items: updatedItems,
+              items_count,
               total: roundNumber(total)
             }
           };
@@ -70,18 +74,22 @@ const useBasketStore = create<BasketState>()(
       
           // update the total
           const total = updatedItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
+
+          // update the items count
+          const items_count = updatedItems.reduce((total, item) => total + item.quantity, 0);
       
           return {
             basket: {
               ...state.basket,
               items: updatedItems,
+              items_count,
               total: roundNumber(total)
             }
           };
         });
       },
       clearBasket: () => {
-        set({ basket: { items: [], total: 0 } });
+        set({ basket: { items: [], items_count: 0, total: 0 } });
       }
     }),
     {

@@ -4,14 +4,12 @@ import useBasketStore from "../../basket/store";
 const BasketItemsQuantity = () => {
   const { basket } = useBasketStore();
 
-  const basketQuantity = basket.items.reduce((acc, item) => acc + item.quantity, 0);
-
-  if (basketQuantity === 0) {
+  if (basket.items_count === 0) {
     return null
   }
 
   return (
-    <span className={styles.basketQuantity}>{basketQuantity}</span>
+    <span className={styles.basketQuantity}>{basket.items_count}</span>
   )
 }
 

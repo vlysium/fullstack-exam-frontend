@@ -8,4 +8,5 @@ export interface BasketItem {
 export interface Basket {
   items: BasketItem[];
   total: number;
+  items_count: number;
 }

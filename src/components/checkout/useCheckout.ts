@@ -2,15 +2,15 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import useBasketStore from "../basket/store";
 import ApiClient from "../../services/apiClient";
-import { Order } from "../../entities/Order";
+import { CreateOrder } from "../../entities/Order";
 
 const useOrderMutation = () => {
-  const apiClient = new ApiClient<Order>("order");
+  const apiClient = new ApiClient<CreateOrder>("order");
   const { basket, clearBasket } = useBasketStore();
   
   return useMutation(
     async () => {
-      const orderData: Order = {
+      const orderData: CreateOrder = {
         items: basket.items.map((item) => ({
           product: { // only send the necessary data
             _id: item.product._id,
@@ -20,6 +20,7 @@ const useOrderMutation = () => {
           quantity: item.quantity,
         })),
         total: basket.total,
+        items_count: basket.items_count,
       };
 
       // console.log(orderData)
