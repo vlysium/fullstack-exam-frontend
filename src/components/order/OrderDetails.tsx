@@ -14,7 +14,7 @@ const OrderDetails = ({order}: Props) => {
   const orderId = (id: string): string => {
     const lastFourChars = id.slice(-4);
     const hexToDec = parseInt(lastFourChars, 16);
-    return `#${hexToDec}`;
+    return `# ${hexToDec}`;
   }
 
   return (

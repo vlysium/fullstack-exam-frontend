@@ -15,7 +15,7 @@ const OrderList = () => {
     return (
       <>
         <div className={styles.orderListLabels}>
-          <p className={styles.orderListLabelID}>Order ID</p>
+          <p className={styles.orderListLabelID}># Order ID</p>
           <p className={styles.orderListLabelItemCount}>Item count</p>
           <p className={styles.orderListLabelTotal}>Total</p>
         </div>
@@ -33,7 +33,7 @@ const OrderList = () => {
   return (
     <>
       <div className={styles.orderListLabels}>
-        <p className={styles.orderListLabelID}>Order ID</p>
+        <p className={styles.orderListLabelID}># Order ID</p>
         <p className={styles.orderListLabelItemCount}>Item count</p>
         <p className={styles.orderListLabelTotal}>Total</p>
       </div>
