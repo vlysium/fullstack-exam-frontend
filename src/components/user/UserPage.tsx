@@ -1,15 +1,19 @@
-import { useAuthStore, useAuth } from "../auth";
+import { Icon } from "../_ui-elements";
+import { useAuth } from "../auth";
+import Profile from "./Profile";
 import styles from "./user.module.scss";
 
 const UserPage = () => {
-  const { user } = useAuthStore();
   const { logout } = useAuth();
 
   return (
     <section className={styles.page}>
       <h1>Your profile</h1>
-      <p>Name: {user?.name}</p>
-      <button onClick={logout}>Logout</button>
+      <Profile />
+      <button className={styles.logoutButton} onClick={logout}>
+        <Icon name="logout"/>
+        Logout
+      </button>
     </section>
   )
 }
