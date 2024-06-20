@@ -3,10 +3,11 @@ import BasketListItem from "./BasketListItem";
 import useBasketStore from "./store";
 import formatPrice from "../../services/formatPrice";
 import EmptyBasket from "./EmptyBasket";
-import BasketCheckoutButton from "./BasketCheckoutButton";
+import { Link } from "react-router-dom";
+import { Icon } from "../_ui-elements";
 
 const BasketList = () => {
-  const { basket } = useBasketStore();
+  const { basket, clearBasket } = useBasketStore();
 
   if (basket.items.length <= 0) {
     return <EmptyBasket />
@@ -23,7 +24,16 @@ const BasketList = () => {
         <p className={styles.totalLabel}>Total:</p>
         <p className={styles.totalNumber}>DKK {formatPrice(basket.total)},-</p>
       </div>
-      <BasketCheckoutButton />
+      <div className={styles.actions}>
+        <button onClick={clearBasket} className={styles.clearBasketButton}>
+          <Icon name="delete" />
+          Clear basket
+        </button>
+        <Link to="/checkout" className={styles.checkoutButton}>
+          Checkout
+          <Icon className={styles.checkoutButtonIcon} name="arrow_forward" />
+        </Link>
+      </div>
     </>
   )
 }

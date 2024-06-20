@@ -62,13 +62,58 @@
   font-style: italic;
 }
 
+.payment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 10rem;
+  width: 17.8rem;
+
+  padding: 1rem;
+  background: linear-gradient(120deg, $color-primary-400, $color-primary-600);
+  border-radius: 0.5rem;
+
+  font-size: $text-lg;
+  font-weight: 500;
+  color: $color-gray-50;
+
+  .label {
+    font-size: $text-sm;
+    font-weight: 300;
+  }
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verified-icon {
+  font-size: $text-xl;
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-holder-name {
+  width: 15ch;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .logout-button {
   display: flex;
   justify-content: center;
   align-items: center;
 
   padding: 1rem;
-  background-color: $color-primary-400;
+  background-color: $color-primary-500;
   border: none;
   border-radius: 0.5rem;
 
@@ -79,6 +124,6 @@
   transition-duration: 0.2s;
 
   &:hover {
-    background-color: $color-primary-500;
+    background-color: $color-primary-600;
   }
 }

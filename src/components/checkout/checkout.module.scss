@@ -1,0 +1,130 @@
+@use "../../variables" as *;
+
+.page {
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form {
+  display: grid;
+
+  @media (min-width: $screen-lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.heading {
+  font-size: $text-2xl;
+  font-weight: 600;
+  color: $color-gray-900;
+}
+
+.sub-heading {
+  font-size: $text-lg;
+  font-weight: 500;
+  color: $color-gray-900;
+}
+
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-card-heading {
+  font-size: $text-lg;
+  font-weight: 600;
+  color: $color-gray-900;
+  margin-bottom: 0.25rem;
+}
+
+.payment-card-wrapper {
+  width: max-content;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid $color-primary-500;
+}
+
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+  border: 1px solid $color-gray-200;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba($color-gray-950, 0.1);
+
+  margin: auto 0;
+  height: max-content;
+}
+
+.order-summary-heading {
+  font-size: $text-xl;
+  font-weight: 600;
+  color: $color-gray-900;
+}
+
+.order-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @media (min-width: $screen-md) {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+.order-summary-list-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+
+  padding: 0.5rem;
+  background-color: $color-gray-100;
+  border-radius: 0.5rem;
+}
+
+.product-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.product-name {
+  font-weight: 500;
+  color: $color-gray-900;
+}
+
+.product-price {
+  margin-left: auto;
+  text-align: right;
+  font-weight: 500;
+  color: $color-primary-500;
+}
+
+.pay-button {
+  display: flex;
+  justify-content: center;
+
+  background-color: $color-primary-500;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  font-size: $text-md;
+  font-weight: 500;
+  color: $color-gray-50;
+
+  transition-property: background-color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: $color-primary-600;
+  }
+}
