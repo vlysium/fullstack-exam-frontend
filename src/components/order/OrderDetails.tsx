@@ -28,7 +28,7 @@ const OrderDetails = ({order}: Props) => {
         <header className={styles.orderDetailsContentHeader}>
           <p className={styles.orderDetailsProduct}>Product</p>
           <p className={styles.orderDetailsQuantity}>Quantity</p>
-          <p className={styles.orderDetailsPrice}>Price</p>
+          <p className={styles.orderDetailsPrice}>Total price</p>
         </header>
         <ul className={styles.orderDetailsContentList}>
           {order.items.map(
@@ -36,7 +36,7 @@ const OrderDetails = ({order}: Props) => {
               <li key={item.product._id} className={styles.orderDetailsContentListItem}>
                 <p className={styles.orderDetailsProduct}>{item.product.name}</p>
                 <p className={styles.orderDetailsQuantity}>{item.quantity}</p>
-                <p className={styles.orderDetailsPrice}>{formatPrice(item.product.price)}</p>
+                <p className={styles.orderDetailsPrice}>{formatPrice(item.quantity * item.product.price)}</p>
               </li>
             )
           )}
