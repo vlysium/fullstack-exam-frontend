@@ -1,4 +1,4 @@
-import useAuth, { Login } from "./useAuth";
+import useLogin, { Login } from "./useLogin";
 import { InputGroup } from "../_ui-elements";
 import { useState } from "react";
 import styles from "./auth.module.scss";
@@ -11,7 +11,7 @@ const LoginPage = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
-  const { login } = useAuth();
+  const { mutate: login, isLoading } = useLogin();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,7 +29,7 @@ const LoginPage = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>
-            <input className={styles.submitButton} type="submit" value="Login" disabled={!isFormEmpty} />
+            <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value="Login" disabled={!isFormEmpty || isLoading} />
           </form>
         </div>
         <div className={styles.backgroundImage} />

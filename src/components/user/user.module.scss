@@ -106,24 +106,3 @@
   overflow: hidden;
   white-space: nowrap;
 }
-
-.logout-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 1rem;
-  background-color: $color-primary-500;
-  border: none;
-  border-radius: 0.5rem;
-
-  color: $color-gray-50;
-  font-size: $text-md;
-
-  transition-property: background-color;
-  transition-duration: 0.2s;
-
-  &:hover {
-    background-color: $color-primary-600;
-  }
-}
