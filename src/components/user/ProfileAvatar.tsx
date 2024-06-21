@@ -5,10 +5,14 @@ interface Props {
 }
 
 const ProfileAvatar = ({name}: Props) => {
-  const initials = name.split(" ").map((n) => n[0]).join("");
+  const toInitials = (string: string) => {
+    const initials = string.split(" ").map((n) => n[0]).join("");
+    const maxThreeInitials = initials.substring(0, 3);
+    return maxThreeInitials.toUpperCase();
+  };
 
   return (
-    <div className={styles.profileAvatar} data-initials={initials} role="img"/>
+    <div className={styles.profileAvatar} data-initials={toInitials(name)} role="img"/>
   )
 }
 
