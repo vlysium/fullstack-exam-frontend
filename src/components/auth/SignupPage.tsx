@@ -5,7 +5,7 @@ import styles from "./auth.module.scss";
 import { Link } from "react-router-dom";
 
 const SignupPage = () => {
-  const [formData, setFormData] = useState<Signup>({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState<Signup>({ name: "", email: "", password: "", confirm_password: ""});
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -30,6 +30,7 @@ const SignupPage = () => {
             <InputGroup name="name" type="text" handleInput={handleInput} value={formData.name}>Name</InputGroup>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>
+            <InputGroup name="confirm_password" type="password" handleInput={handleInput} value={formData.confirm_password}>Confirm Password</InputGroup>
             <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value="Create account" disabled={!isFormEmpty || isLoading} />
           </form>
         </div>

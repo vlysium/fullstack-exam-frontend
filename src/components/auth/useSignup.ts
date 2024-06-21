@@ -9,6 +9,7 @@ export interface Signup {
   name: string;
   email: string;
   password: string;
+  confirm_password: string;
 }
 
 const apiClient = new ApiClient("signup");
