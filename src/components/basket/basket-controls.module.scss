@@ -64,9 +64,9 @@
   }
 
   &:disabled {
-    background-color: $color-gray-100;
-    border: 1px solid $color-gray-300;
-    color: $color-gray-400;
+    background-color: $color-primary-100;
+    border: 1px solid transparent;
+    color: $color-primary-500;
   }
 }
 
