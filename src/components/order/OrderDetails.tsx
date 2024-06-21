@@ -10,17 +10,18 @@ interface Props {
 const OrderDetails = ({order}: Props) => {
   // console.log(order)
 
-  // convert mongodb id to a shorter and more readable id, not perfect but works until 65535 and then loops back to 0
-  const orderId = (id: string): string => {
-    const lastFourChars = id.slice(-4);
-    const hexToDec = parseInt(lastFourChars, 16);
-    return `# ${hexToDec}`;
+  // convert created_at to a 5 digit order id
+  const pseudoOrderId = (num: number) => {
+    const squareroot = Math.sqrt(num);
+    const rounded = Math.round(Number(squareroot.toFixed(2)) * 100);
+    const lastFiveDigits = rounded.toString().slice(-5);
+    return lastFiveDigits;
   }
 
   return (
     <details className={styles.orderDetails}>
       <summary className={styles.orderDetailsSummary}>
-        <span className={styles.orderDetailsSummaryId}>{orderId(order._id)}</span>
+        <span className={styles.orderDetailsSummaryId}>{pseudoOrderId(order.created_at)}</span>
         <span className={styles.orderDetailsSummaryItemCount}>{order.items_count}</span>
         <span className={styles.orderDetailsSummaryTotal}>DKK {formatPrice(order.total)},-</span>
       </summary>
