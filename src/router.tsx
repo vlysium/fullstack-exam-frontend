@@ -1,18 +1,20 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import App from "./components/App";
+import MainApp from "./components/MainApp";
 import { SignupPage, LoginPage } from "./components/auth";
-import AppAuthRoutes from "./components/AppAuthRoutes";
+import AuthRoutes from "./components/AuthRoutes";
 import { ProductSlugPage, ProductsPage } from "./components/products";
 import { BasketPage } from "./components/basket";
 import { UserPage } from "./components/user";
 import { OrdersPage } from "./components/order";
 import { CheckoutPage } from "./components/checkout";
+import ErrorPage from "./components/error/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MainApp />,
+    errorElement: <ErrorPage />,
     children: [
       { // redirect "/" to "/products"
         path: "/",
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    element: <AppAuthRoutes />,
+    element: <AuthRoutes />,
     children: [
       {
         path: "/signup",

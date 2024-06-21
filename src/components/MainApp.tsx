@@ -3,7 +3,7 @@ import { Navigation } from "./_ui-elements"
 import Cookies from "js-cookie";
 import useCookieQuery from "./auth/useCookieQuery";
 
-const App = () => {
+const MainApp = () => {
   
   useCookieQuery();
 
@@ -20,4 +20,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default MainApp;

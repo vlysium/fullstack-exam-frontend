@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useAuthStore } from "./auth"
 
-const AppAuthRoutes = () => {
+const AuthRoutes = () => {
   const { user } = useAuthStore()
 
   // if user is present, redirect to products page
@@ -16,4 +16,4 @@ const AppAuthRoutes = () => {
   )
 }
 
-export default AppAuthRoutes;
+export default AuthRoutes;

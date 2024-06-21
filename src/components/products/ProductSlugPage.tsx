@@ -9,8 +9,12 @@ const ProductSlugPage = () => {
   const { slug } = useParams();
   // console.log(slug);
 
-  const { data: product } = useProduct(slug!);
+  const { data: product, error } = useProduct(slug!);
   // console.log(product);
+  
+  if (error?.response?.status === 404) {
+    throw error;
+  }
 
   if (!product) {
     return <p>Loading...</p>;
