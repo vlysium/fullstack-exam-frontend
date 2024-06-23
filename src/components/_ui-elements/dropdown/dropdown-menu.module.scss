@@ -78,11 +78,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $color-gray-100;
+    background-color: $color-gray-200;
   }
   
   &:has(:checked) {
-    background-color: $color-gray-100;
+    background-color: $color-gray-200;
     font-weight: 500;
     color: $color-gray-900;
   }

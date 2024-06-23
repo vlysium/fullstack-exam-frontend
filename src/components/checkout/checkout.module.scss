@@ -124,7 +124,11 @@
   transition-property: background-color;
   transition-duration: 0.2s;
 
-  &:hover, &:disabled {
+  &:hover {
     background-color: $color-primary-600;
+  }
+
+  &:disabled {
+    background-color: $color-primary-300;
   }
 }

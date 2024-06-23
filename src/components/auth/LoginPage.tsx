@@ -29,7 +29,7 @@ const LoginPage = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>
-            <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value="Login" disabled={!isFormEmpty || isLoading} />
+            <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value={isLoading ? "Logging in..." : "Login"} disabled={!isFormEmpty || isLoading} />
           </form>
         </div>
         <div className={styles.backgroundImage} />

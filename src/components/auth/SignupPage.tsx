@@ -31,7 +31,7 @@ const SignupPage = () => {
             <InputGroup name="email" type="email" handleInput={handleInput} value={formData.email}>Email</InputGroup>
             <InputGroup name="password" type="password" handleInput={handleInput} value={formData.password}>Password</InputGroup>
             <InputGroup name="confirm_password" type="password" handleInput={handleInput} value={formData.confirm_password}>Confirm Password</InputGroup>
-            <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value="Create account" disabled={!isFormEmpty || isLoading} />
+            <input className={`${styles.submitButton} ${isLoading ? styles.loading : ""}`} type="submit" value={isLoading ? "Creating account..." : "Create account"} disabled={!isFormEmpty || isLoading} />
           </form>
         </div>
         <div className={styles.backgroundImage}/>

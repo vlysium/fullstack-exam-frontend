@@ -26,6 +26,7 @@ const ProductList = () => {
 
   return (
     <>
+      <span>{products.totalCount} total results</span>
       <ul className={styles.productList}>
         {products.items.map(
           (product) => (

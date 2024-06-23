@@ -44,7 +44,7 @@ const OrderList = () => {
           )
         )}
       </ul>
-      {orders.items.length > 0 && <Pagination data={orders} query={orderQuery} setPage={setPage} />}
+      {orders.totalPages > 1 && <Pagination data={orders} query={orderQuery} setPage={setPage} />}
     </>
   )
 }

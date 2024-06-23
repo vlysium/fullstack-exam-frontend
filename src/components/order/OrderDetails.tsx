@@ -10,18 +10,10 @@ interface Props {
 const OrderDetails = ({order}: Props) => {
   // console.log(order)
 
-  // convert created_at to a 5 digit order id
-  const pseudoOrderId = (num: number) => {
-    const squareroot = Math.sqrt(num);
-    const rounded = Math.round(Number(squareroot.toFixed(2)) * 100);
-    const lastFiveDigits = rounded.toString().slice(-5);
-    return lastFiveDigits;
-  }
-
   return (
     <details className={styles.orderDetails}>
       <summary className={styles.orderDetailsSummary}>
-        <span className={styles.orderDetailsSummaryId}>{pseudoOrderId(order.created_at)}</span>
+        <span className={styles.orderDetailsSummaryId}>{order.created_at}</span>
         <span className={styles.orderDetailsSummaryItemCount}>{order.items_count}</span>
         <span className={styles.orderDetailsSummaryTotal}>DKK {formatPrice(order.total)},-</span>
       </summary>
