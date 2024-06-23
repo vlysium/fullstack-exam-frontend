@@ -81,7 +81,7 @@
     grid-template-columns: 3fr 1fr 1fr;
   }
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-primary-100;
     border: 1px solid $color-primary-300;
     color: $color-primary-900;
@@ -200,7 +200,7 @@
   transition-property: border;
   transition-duration: 0.15s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     border: 2px dashed transparent;
   }
 }

@@ -49,7 +49,7 @@
   transition-property: color;
   transition-duration: 0.2s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     color: $color-primary-600;
   }
 }

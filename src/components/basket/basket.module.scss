@@ -124,7 +124,7 @@
   transition-property: background-color, color;
   transition-duration: 0.15s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-red-600;
     color: $color-gray-50;
   }
@@ -146,7 +146,7 @@
   transition-property: background-color;
   transition-duration: 0.15s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-primary-600;
   }
 }
@@ -168,7 +168,7 @@
   transition-property: border;
   transition-duration: 0.15s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     border: 2px dashed transparent;
   }
 }

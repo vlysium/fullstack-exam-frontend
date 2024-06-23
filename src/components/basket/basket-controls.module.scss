@@ -30,7 +30,7 @@
       background-color: transparent;
       color: $color-primary-500;
 
-      &:hover {
+      &:hover, &:focus-visible {
         background-color: $color-primary-200;
       }
     }
@@ -59,7 +59,7 @@
   transition-property: background-color, color, border-color;
   transition-duration: 0.2s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-primary-600;
   }
 

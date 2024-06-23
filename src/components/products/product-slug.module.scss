@@ -40,7 +40,7 @@
     transition-property: transform, filter;
     transition-duration: 0.5s;
   
-    &:hover {
+    &:hover, &:focus-visible {
       cursor: zoom-in;
       transform: scale(1.1);
       filter: brightness(1);

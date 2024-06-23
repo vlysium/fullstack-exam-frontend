@@ -124,7 +124,7 @@
   transition-property: background-color;
   transition-duration: 0.2s;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-primary-600;
   }
 

@@ -37,7 +37,7 @@
     width: auto;
   }
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-red-200;
   }
 
@@ -71,7 +71,7 @@
   transition-property: background-color, border, box-shadow;
   transition-duration: 0.2s;
 
-  &:is(:hover, :focus-visible) {
+  &:hover, &:focus-visible {
     background-color: $color-gray-100;
     border: 1px solid $color-gray-400;
     box-shadow: 0 10px 15px -3px rgba($color-gray-950, 0.1), 0 4px 6px -4px rgba($color-gray-950, 0.1);

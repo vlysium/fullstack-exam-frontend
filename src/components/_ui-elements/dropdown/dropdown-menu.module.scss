@@ -30,7 +30,7 @@
   transition-property: background-color;
   transition-duration: 0.15s;
 
-  &:hover, &.open {
+  &:hover, &:focus-visible, &.open {
     background-color: $color-gray-100;
   }
 }
@@ -77,7 +77,7 @@
   color: $color-gray-600;
   cursor: pointer;
 
-  &:hover {
+  &:hover, &:focus-visible {
     background-color: $color-gray-200;
   }
   
