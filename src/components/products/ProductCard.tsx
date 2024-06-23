@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Product } from "../../entities/Product";
 import styles from "./products.module.scss";
 import { StarRating } from "../_ui-elements";
-import formatPrice from "../../services/formatPrice";
+import formatPrice from "../../helpers/formatPrice";
 
 interface Props {
   product: Product

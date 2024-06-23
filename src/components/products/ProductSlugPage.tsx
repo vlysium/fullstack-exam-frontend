@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useProduct from "./useProduct";
 import styles from "./product-slug.module.scss";
 import { StarRating } from "../_ui-elements";
-import capitalizeText from "../../services/capitalizeText";
+import capitalizeText from "../../helpers/capitalizeText";
 import { BasketControls } from "../basket";
 
 const ProductSlugPage = () => {

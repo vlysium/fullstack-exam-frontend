@@ -1,7 +1,7 @@
 import styles from "./basket.module.scss";
 import { BasketItem } from "../../entities/Basket";
 import BasketControls from "./BasketControls";
-import formatPrice from "../../services/formatPrice";
+import formatPrice from "../../helpers/formatPrice";
 
 interface Props {
   item: BasketItem

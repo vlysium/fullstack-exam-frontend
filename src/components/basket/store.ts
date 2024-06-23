@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { Basket, BasketItem } from "../../entities/Basket";
 import { createJSONStorage, persist } from "zustand/middleware";
-import roundNumber from "../../services/roundNumber";
-import encryptedStorage from "../../services/encryptedStorage";
+import roundNumber from "../../helpers/roundNumber";
+import encryptedStorage from "../../helpers/encryptedStorage";
 
 interface BasketState {
   basket: Basket;

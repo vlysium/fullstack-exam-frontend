@@ -1,4 +1,4 @@
-import epochToTimeDate from "../../services/epochToTimeDate";
+import epochToTimeDate from "../../helpers/epochToTimeDate";
 import { useAuthStore } from "../auth";
 import ProfileAvatar from "./ProfileAvatar";
 import styles from "./user.module.scss";

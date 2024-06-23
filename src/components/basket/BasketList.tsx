@@ -1,7 +1,7 @@
 import styles from "./basket.module.scss";
 import BasketListItem from "./BasketListItem";
 import useBasketStore from "./store";
-import formatPrice from "../../services/formatPrice";
+import formatPrice from "../../helpers/formatPrice";
 import EmptyBasket from "./EmptyBasket";
 import { Link } from "react-router-dom";
 import { Icon } from "../_ui-elements";

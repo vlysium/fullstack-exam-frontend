@@ -1,6 +1,6 @@
 import { Order } from "../../entities/Order";
-import epochToTimeDate from "../../services/epochToTimeDate";
-import formatPrice from "../../services/formatPrice";
+import epochToTimeDate from "../../helpers/epochToTimeDate";
+import formatPrice from "../../helpers/formatPrice";
 import styles from "./orders.module.scss";
 
 interface Props {

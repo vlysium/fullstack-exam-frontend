@@ -1,4 +1,4 @@
-import formatPrice from "../../services/formatPrice";
+import formatPrice from "../../helpers/formatPrice";
 import { Icon } from "../_ui-elements";
 import useBasketStore from "../basket/store";
 import styles from "./checkout.module.scss"
