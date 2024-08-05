@@ -25,7 +25,7 @@ const InputGroup = ({ children, name, type, handleInput, value }: Props) => {
         <input className={`${styles.input} ${styles.inputPassword}`} name={name} type={hidePassword ? "password" : "text"} onChange={(event) => handleInput(event)} value={value} placeholder=" "/>
         <label className={styles.label}>{children}</label>
         <button className={styles.togglePassword} onClick={(e) => handleToggle(e)} tabIndex={-1}>
-          <Icon name={hidePassword ? "visibility" : "visibility_off"} className={styles.togglePasswordIcon}/>
+          <Icon name={hidePassword ? "visibility_off" : "visibility"} className={styles.togglePasswordIcon}/>
         </button>
       </div>
     )
