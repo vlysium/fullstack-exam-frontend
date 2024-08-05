@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./styles.scss";
 import router from "./router.tsx";
+import { PopUp } from "./components/_ui-elements/index.ts";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
       <ToastContainer {...toastOptions} />
+      <PopUp />
     </QueryClientProvider>
   </React.StrictMode>
 )
